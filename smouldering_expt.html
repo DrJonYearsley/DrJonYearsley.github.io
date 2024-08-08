@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peat Smouldering Experiments: Ecological Modelling @ UCD</title>
+    <meta name="description" content='Time-lapse videos of peat smouldering experiments carried out at University College Dublin'>
+    <link rel="stylesheet" type="text/css" href="ecomod.css" />
+  </head>
+  
+  <body>
+ 
+
+    <!-- ######### Header ##########-->
+    <div id="head-container">
+      <a href="http://www.ucd.ie" target='_blank'><img src="./images/ucd_logo.png" alt="UCD crest" /></a>
+      <img src="./images/headerLogo.png" alt="Ecological Modelling logo"/>
+    </div>
+    
+    <!-- ######### Navigation Bar ##########-->
+    <div id="navigation-container">
+      <div id="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="research.html" class="active">Research</a></li>
+          <li><a href="resources.html">Resources</a></li>
+	   <li><a href="publications.html">Publications</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- ######### Main Content ##########-->
+    <div id="content-container">
+      <div class="sidebarmenu">
+        <ul id="sidebarmenu1">
+          <li><a href="peat_smouldering.html">Research overview</a></li>
+          <li><a href="smouldering.html">What is smouldering?</a></li>
+          <li><a href="report_smouldering.html">Report a smouldering peatland</a></li>
+          <li><a class="active">Smouldering in the laboratory</a></li>
+        </ul>
+      </div>
+      
+      <div id="content-container2">
+        <div id="content-container3" style='height:4000px'>
+          <div id="content-sm">
+            <h1>Laboratory controlled burns of smouldering peat</h1>
+            
+            <img class='floatright' src='images/expt_setup.jpg' style="width:300px" alt="combustion lab set-up"/>
+            <p>
+              Below are a couple of videos of our laboratory controlled burns. These videos last for ~1min, but in reality these smouldering burns take several hours. The burns are for peats with ~0% and 100% moisture content (measured as a percentage of dry weight).
+            </p>
+            <p>The experimental setup is shown on the right. The burn box is 20cm x 20cm and 10cm deep. Combustion is started (top of the videos) by passing a controlled electrical current through a coil of heating wire (100W for 30 mins).
+            </p>
+            <p>
+              The smouldering propagation is recorded with: a webcam, an infrared camera, thermocouples inside the peat and an electronic balance. These data are then analysed in Matlab and R to extract the velocity of the smouldering combustion front, the mass loss rate of the sample and the temperature at the smouldering combustion front. These data can be used to parameterise models of smouldering combustion.
+            </p>
+            
+            <img src='images/divider.png' alt="divider"/>
+            
+            
+            <div id="video">
+              <h3>Time-lapse video of a Dry-Peat Burn</h3>
+              <iframe width="420" height="345"
+                      src="http://www.youtube.com/embed/6s9ekDzDsKk">
+              </iframe>
+              <p>
+                Peat smouldering experiment (peat at ~0% moisture content). Left hand image is visual movie showing pyrolysis front, right hand image is an infrared movie showing the exothermic region (oxidation). The colour scale on the infrared image is room temp (dark blue) to ~400 degrees C (red).
+              </p>
+            </div>
+            
+            
+            <div id="video">
+              <h3>Time-lapse video of a Wet-Peat Burn</h3>
+              <iframe width="420" height="345"
+                      src="http://www.youtube.com/embed/OwROiz2CxhE">
+              </iframe>
+              <p>
+                Peat smouldering experiment (peat at 100% moisture content). Left hand image is visual movie showing pyrolysis front, right hand image is an infrared movie showing the exothermic region (oxidation). The colour scale on the infrared image is room temp (dark blue) to ~400 degrees C (red).
+              </p>
+            </div>
+
+            <div id="video">
+              <h3>Time-lapse video of a typical burn experiment</h3>
+              <iframe width="420" height="345"
+                      src="https://www.youtube.com/embed/GcU4ca0AZGo">
+              </iframe>
+              <p>
+		Example of a peat burning experiment showing the radial spread of the fire from a central ignition point. The left-hand video is a visual webcam video of the smouldering peat. Right-hand is an infrared video of the same peat burn. A 10 cm long glowing coil ignites the peat from the centre of the peat sample. The self-sustained spread is produced in a radial fashion until the box walls. Experiments like that are used to test the influence of laboratory conditions, such as air flow, to the smouldering fire spread in fine-scale burning experiments.                             
+	      </p>
+            </div>
+
+
+            <div id="video">
+              <h3>Time-lapse video of a typical burn experiment</h3>
+              <iframe width="420" height="345"
+                      src="https://www.youtube.com/embed/DUEPFvuDikk">
+              </iframe>
+              <p>
+		Example of data collected during a peat burning experiment. Top left image is a webcam recording of the smouldering peat. Top right image is an infrared image of the same burn, bottom is a graph of the radiative power detected from one pixel of the infrared image (pixel marked with a white dot). The peat is ignited along one site of the box using a glowing coil covered by dry peat. The smouldering fire self-spreads horizontally through the peat sample. Each pixel in the infrared image is a power density value (kW/m^2) and is used to locate the smouldering front inside the box. The graph below shows the power density of the pixel highlighted in white in the visual and infrared images. There is no change in the power intensity until the smouldering front gets very close to the pixel causing the power density to increase rapidly due to the start of exothermal oxidation reactions. The values are high for the duration of the peat and char oxidation and then they have a slower cool down phase. Each pixel has similar graphs that can be used, for example, to estimate the spread rates of the fire.
+              </p>
+            </div>
+
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ######### Footer ##########-->
+    <div id="footer-container">
+      <div id="footer">
+        <a href="http://www.ucd.ie/bioenvsci" target='_blank'>School of Biology and Environmental Science, UCD</a>
+      </div>
+    </div>
+  </body>
+</html>
