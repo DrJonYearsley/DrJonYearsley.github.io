@@ -34,7 +34,7 @@ body h3 {
 
 #head-container img
 {
-    height: 90px;
+    height: 100px;
     float: left;
     margin: 10px 0px 0px 20px;
     border: 0px;
@@ -50,7 +50,7 @@ body h3 {
 
 #navigation
 {
-    margin: 0px 0px 0px 100px;
+    margin: 0px 0px 0px 120px;
 }
 
 #navigation ul
@@ -75,7 +75,7 @@ body h3 {
     padding: 5px 10px;
     text-decoration: none;
     border-right: 1px solid #fff;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #navigation li a:hover { 
@@ -156,7 +156,7 @@ body h3 {
 
 #content-container3 /* used to contain actual content of the page */ 
 {
-    padding: 20px;
+    padding: 0px;
     position: relative;
     float: left;
     height: 1000px;
@@ -176,7 +176,7 @@ body h3 {
 }
 
 #content h1 {
-    margin: 10px;
+    margin: 0px;
     line-height: 100%;
 }
 
@@ -203,14 +203,15 @@ body h3 {
     margin: 40px;
     display: inline;
     align: top;
-    line-width: 130%;
+    line-width: 100%;
+    line-height: 1.2
 }
 
 #content-sm h1 
 {
     text-align: center;
-    font-size: 30px;
-    padding: 0px 0px 10px 0px;
+    font-size: 25px;
+    padding: 0px 0px 0px 0px;
     color: #500;
 }
 
