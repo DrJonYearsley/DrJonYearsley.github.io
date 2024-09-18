@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Errors from Hypothesis Testing and Post-hoc Tests</title>
+
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px">
+	  </div>
+
+	  <h2 class="title">Errors and Post-hoc Tests</h2>
+	  <h4 class="author">Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id='title'>What will you learn?</h2>
+
+	  <div class='greybox'>
+	  <p>
+	   In this lesson you will learn to:
+	    </p>
+	    <ol>
+	      <li>Explain the types of errors inherent to hypothesis testing</li>
+	      <li>Describe the problem of multiple comparisons</li>
+	      <li>Explain why post-hoc tests are necessary</li>
+	    </ol>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->
+
+	<section>	  
+	  <section>
+	    <h2 id='title'>A Classic Scam</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: MultipleComparisons_part1' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658157&node=3141361&a=132148137&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="800" controls>
+		<source src="video/MultipleComparisons_part1.webm" type="video/webm">
+		  <source src="video/MultipleComparisons_part1.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+	      <p>
+		(Video 1 min 23 sec)
+	      </p>
+	    </div>	    
+
+	  </section>
+
+          <!-- ************************* -->
+
+	  	  <section>
+	    <h3 id='title'>A Classic Scam Revealed!</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: MultipleComparisons_part2' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658158&node=3141362&a=1978780&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	<!--  
+	      <video width="800" controls>
+		<source src="video/MultipleComparisons_part2.webm" type="video/webm">
+		  <source src="video/MultipleComparisons_part2.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+	      <p>
+		(Video 1 min)
+	      </p>
+	    </div>	    
+	  </section>	  
+	</section>
+	
+	<!-- ########################################## -->
+
+	<section>	  
+	  <section>
+	    <h2 id='title'>Multiple Testing Scam</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: MultipleComparisons_part3' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658159&node=3141363&a=189989089&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	 <!--	
+	      <video width="800" controls>
+		<source src="video/MultipleComparisons_part3.webm" type="video/webm">
+		  <source src="video/MultipleComparisons_part3.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+	      <p>
+		(Video 55 sec)
+	      </p>
+	    </div>	    
+	  </section>
+	  
+          <!-- ************************* -->	  
+
+	  <section>
+	    <h3 id='title'>Multiple Testing Scam Revealed?</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: MultipleComparisons_part4' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658161&node=3141366&a=169901388&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	 <!--
+	      <video width="800" controls>
+		<source src="video/MultipleComparisons_part4.webm" type="video/webm">
+		  <source src="video/MultipleComparisons_part4.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+	      <p>
+		(Video 1 min 31 sec)
+	      </p>
+	    </div>	    
+
+	  </section>
+	</section>
+	
+	<!-- ########################################## -->
+	
+	<section>	  
+	  <section>
+	    <h2 id='title'>Making the wrong decision</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: MultipleComparisons_part5' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658162&node=3141367&a=13404348&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	    <!--
+	      <video width="800" controls>
+		<source src="video/MultipleComparisons_part5.webm" type="video/webm">
+		  <source src="video/MultipleComparisons_part5.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+	      
+	      <p>
+		(Video 3 mins 30 sec)
+	      </p>
+	    </div>	    
+
+	  </section>
+
+	</section>
+	
+	<!-- ########################################## -->
+
+	<section>	  
+	  <section>
+	    <h2 id='title'>Post-hoc Testing</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: MultipleComparisons_part6' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658163&node=3141368&a=27881892&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--
+		  <video width="800" controls>
+		    <source src="video/MultipleComparisons_part6.webm" type="video/webm">
+		    <source src="video/MultipleComparisons_part6.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+		  </video>
+		  -->
+	      
+	      <p>
+		(Video 6 mins 2 sec)
+	      </p>
+	    </div>	    
+
+	  </section>
+	</section>
+	
+	<!-- ########################################## -->
+	
+	<section>
+	<section>
+	  <h2 id='title'>Key Points (Errors)</h2>
+	  
+	  <div class='greybox'>
+	    <ul>
+	      <li>Hypothesis tests have two unavoidable errors 
+	      <ol>
+	      <li>False negatives (Type II errors)</li>
+	      <li>False positives (Type I errors)</li>
+	      </ol></li>
+	      <li>These two errors cannot be avoided, but their rates can be controlled</li>
+	      <li>The rate at which false positives occur is the critical significance level (commonly 5%)</li>
+	      <li>It is important that the false positive error rate is known <em>a priori</em></li>
+	    </ul>
+	  </div>
+	</section>
+
+          <!-- ************************* -->	  
+
+	<section>
+	  <h2 id='title'>Key Points (Multiple Comparisons)</h2>
+	  
+	  <div class='greybox'>
+	    <ul>
+	      <li>Performing multiple tests increases the overall rate of false positives</li>
+	      <li>Critical significance thresholds must be modified when performing multiple tests to keep overall false positive rates close to 5%</li>
+	      <li>Post-hoc tests modify significance thresholds to keep the error rate of false positives close to 5%</li>
+	      <li>Bonferroni correction and Tukey's HSD are two common post-hoc methodologies</li>
+	    </ul>
+	  </div>
+	</section>
+	</section>
+	
+	<!-- ########################################## -->
+
+
+
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>	
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+
+	  // Display presentation control arrows
+	  controls: true,
+	  
+	  // Transition style
+	  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+
+
+
+  </body>
+</html>

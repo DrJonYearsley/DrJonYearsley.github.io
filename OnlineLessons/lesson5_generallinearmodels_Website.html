@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>General Linear Models</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+  <body>
+    <div class="reveal">     
+      <div class="slides">
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px">
+	  </div>
+
+	  <h2>General Linear Models</h2>
+	  <h4>Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id="title">What will you learn?</h2>
+
+	  <div class='greybox'>
+	    <p>
+	      In this lesson you will learn to:
+	      </p>
+	    <p>
+	    <ol>
+	      <li>Explain the concept of a general linear model</li>
+	      <li>Describe some examples of general linear models</li>
+	      <li>Describe the assumptions of a general linear model</li>
+	      <li>Explain the difference between a response variable and an explanatory variable</li>
+	    </ol>
+	    </p>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <section data-background-image='images/definition.jpg'  data-background-opacity=0.5>
+	    <h2 id="title">Definition</h2>
+
+	    <div class='greybox'>
+	      <p>
+		<strong>General linear models</strong> are a family of statistical models based on the normal distribution.
+	      </p>
+	      <p>
+		A lot of classical statistical methods come under the unifying umbrella of general linear models:
+		<ul>
+		  <li><a href='https://en.wikipedia.org/wiki/Analysis_of_variance' target='_blank'>analysis of variance (ANOVA),</a></li>
+		  <li>linear regression,</li>
+		  <li>t-tests,</li>
+		  <li><a href='https://en.wikipedia.org/wiki/Analysis_of_covariance' target='_blank'>analysis of covariance (ANCOVA)</a></li>
+		</ul>
+	      </p>
+	      <p>
+		are four examples of statistical methods which are all examples of general linear models.
+	      </p>
+	      <p>
+		General linear models are often called <strong>linear models</strong> for short.
+	      </p>
+	    </div>
+	  </section>
+
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section>
+	    <h3>Fitting a General Linear Model</h3>
+
+	    <div class='greybox'>
+	      <p>
+		General linear models have parameters, like all statistical models.
+	      </p>
+	      <p>
+		<strong>Fitting a general linear model</strong> means using the data to find <strong>suitable values for the parameters</strong> of the model.
+	      </p>
+	      <p>
+		You can use the <code>lm()</code> function in R to fit a general linear model. Below is an example:</p>
+
+	      <pre><code  data-trim>
+		  # Fit a simple general linear model to the human height data
+		  m = lm(HEIGHT ~ 1, data=human)
+	      </code></pre>
+	      
+	      <p>The <code>lm()</code> function uses a <a href='https://en.wikipedia.org/wiki/Maximum_likelihood_estimation' target='_blank'>maximum likelihood</a> approach to fit the model, but we don't need to know about the details of the fitting. We will need to know how to interpret the results of the fitting process.
+	      </p>
+	    </div>
+	  </section>
+
+
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section>
+	    <h3>Synonyms</h3>
+
+	    <div class='greybox'>
+	      <p>In texts you will see several names used for essentially the same concept. Here are a few that you will encounter in this lesson:</p>
+	      <ul>
+		<li><strong>Error</strong> equivalent to <strong>residual</strong></li>
+		<li><strong>Fitted value</strong> equivalent to the <strong>prediction from a model</strong></li>
+		<li><strong>Explanatory variable</strong> equivalent to <strong>independent variable</strong> or <strong>predictor variable</strong></li>
+		<li><strong>Response variable</strong> equivalent to <strong>dependent variable</strong> or <strong>predicted variable</strong></li>
+	      </ul>
+	      <p>
+		A statistical glossary on Brightspace has a more complete list of statistical terminology
+	      </p>
+	    </div>
+	  </section>	  
+	  
+	</section>
+	<!-- ########################################## -->
+
+
+	<section>	  
+	  <section>
+	    <h2>Example 1</h2>
+
+	    <div style="text-align:center">
+
+	      <iframe title='Embedded Media titled: GLM_intro1' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658153&node=3141354&a=110961738&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--	 
+		
+			 <video width="800" controls>
+			   <source src="video/GLM_intro1.mp4" type="video/mp4">
+			   <source src="video/GLM_intro1.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			 -->
+			 
+	      <p>(Video 4 mins 46 sec)</p>
+	    </div>
+	  </section>
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section>
+	    <h3>R Code for the above example</h3>
+
+	    <div class='greybox'>
+	      The R code below uses the <code>lm()</code> command to fit  and display the first general linear model shown in the video above.
+	      <pre><code class='R' data-trim data-noescape>
+		  # Subset data for heights of women
+		  humanF = subset(human, SEX=='F')
+		  
+		  # Fit a general linear model to heights of women
+		  m = lm(HEIGHT ~ 1, data=humanF)
+
+		  # Produce a summary of the fitted model
+		  summary(m)		  
+	      </code></pre>
+	      
+	      The R code below uses the <code>lm()</code> command to fit  and display the second general linear model shown in the video above.
+	      <pre><code class='R' data-trim data-noescape>
+		  # Fit a general linear model to heights of women and men
+		  m = lm(HEIGHT ~ 1 + SEX, data=human)
+
+		  # Produce a summary of the fitted model
+		  summary(m)		  
+	      </code></pre>
+	    </div>
+	  </section>
+
+	</section>	  
+
+	
+	<!-- ########################################## -->
+
+
+	<section>	  
+	  <section>
+	    <h2 id="title">Example 2</h2>
+
+	    <div style="text-align:center">
+	      <p>Classical linear regression as a general linear model</p>
+
+	      <iframe title='Embedded Media titled: GLM_intro2' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658154&node=3141356&a=55794103&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--	 
+
+			 <video width="800" controls>
+			   <source src="video/GLM_intro2.mp4" type="video/mp4">
+			   <source src="video/GLM_intro2.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video> 
+-->
+	      <p>(Video 3 mins 35 sec)</p>
+	    </div>
+	  </section>
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section>
+	    <h3>R Code for the above example</h3>
+
+	    <div class='greybox'>
+	      The R code below uses the <code>lm()</code> command to fit and display the general linear model shown in the video above.
+	      <pre><code data-trim data-noescape>
+		  # Subset data for heights of men
+		  humanM = subset(human, SEX=='M')
+		  
+		  # Fit a general linear model to the relationship
+		  # between HEIGHT and WEIGHT of men
+		  m = lm(HEIGHT ~ 1 + WEIGHT, data=humanM)
+
+		  # Produce a summary of the fitted model
+		  summary(m)
+	      </code></pre>	      
+	    </div>
+	  </section>
+
+	</section>	  
+
+
+	
+	<!-- ########################################## -->
+
+
+	<section>	  
+	  <section>
+	    <h2 id="title">Example 3</h2>
+
+	    <div style="text-align:center">
+	      <p>Classical ANCOVA as a general linear model</p>
+
+	      	      <iframe title='Embedded Media titled: GLM_intro3' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658156&node=3141358&a=98570405&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+
+	      <!--	 
+			 <video width="800" controls>
+			   <source src="video/GLM_intro3.webm" type="video/webm">
+			   <source src="video/GLM_intro3.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+-->
+			 
+	      <p>(Video 4 mins 4 sec)</p>
+	    </div>
+	  </section>
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section>
+	    <h3>R Code for the above example</h3>
+
+	    <div class='greybox'>
+	      The R code below uses the <code>lm()</code> command to fit and display the general linear model shown in the video above.
+	      <pre><code class='R' data-trim data-noescape>
+		  # Fit a general linear model to the relationship between
+		  # height and weight for women and men
+		  m = lm(HEIGHT~1+SEX+WEIGHT+SEX:WEIGHT, data=human)
+
+		  # Produce a summary of the fitted model
+		  summary(m)
+	      </code></pre>
+	      
+	    </div>
+	  </section>
+
+	</section>	  
+
+
+	
+	<!-- ########################################## -->
+
+
+	<section>	  
+	  <section>
+	    <h2 id="title">Assumptions</h2>
+
+	    <div class='greybox'>
+	      <p>
+		A general linear model makes a number of assumptions about the population it is trying to model.
+	      </p>
+	      <p>
+		The main assumptions are (in order of decreasing importance):
+		<div style='color:#800000'>
+		  <ol>
+		    <li><strong>Assumption of independence</strong>: <br>The residuals are independent of one another</li>
+		    <li><strong>Assumption of homogeneity of variance</strong>: <br>The residuals can be described by a single standard deviation. <br>For linear regression this assumption can be split in two (homogeneity of variance and linearity).</li>
+		    <li><strong>Assumption of normality</strong>: <br>The residuals follow a normal distribution</li>
+		    <li><strong>No uncertainty in explanatory variables</strong>: <br>This assumption is most important for regression type models  (e.g. examples 2 and 3 with continuous explanatory variables). </li>
+		  </ol>
+		</div>
+	      </p>
+	    </div>
+	  </section>
+	  
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Assumptions (Introduction)</h3>
+	    <div style="text-align:center">
+	      <p>Validating the assumptions of a general linear model</p>
+
+	      <iframe title='Embedded Media titled: GLM_assumptions1' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658177&node=3141425&a=192031948&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      <!--	     
+
+			     <video width="800" controls>
+			       <source src="video/GLM_assumptions1.webm" type="video/webm">
+			       <source src="video/GLM_assumptions1.m4v" type="video/mp4">
+			       Your browser does not support HTML5 video.
+			     </video>
+			     -->
+			     
+	      <p>(Video 3 mins 4 sec)</p>
+	    </div>
+	  </section>
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Assumptions (Independence)</h3>
+	    <div style="text-align:center">
+	      <p>Validating the assumptions of a general linear model</p>
+
+<iframe title='Embedded Media titled: GLM_assumptions2' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658178&node=3141426&a=47058487&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--
+			 <video width="800" controls>
+			   <source src="video/GLM_assumptions2.webm" type="video/webm">
+			   <source src="video/GLM_assumptions2.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			 -->
+			 
+	      <p>(Video 47 secs)</p>
+	    </div>
+	  </section>
+	  
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Assumptions (Homogeneity of variance)</h3>
+	    <div style="text-align:center">
+	      <p>Validating the assumptions of a general linear model</p>
+
+	      <iframe title='Embedded Media titled: GLM_assumptions3' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658179&node=3141427&a=177316185&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--
+				      <video width="800" controls>
+					<source src="video/GLM_assumptions3.webm" type="video/webm">
+					<source src="video/GLM_assumptions3.m4v" type="video/mp4">
+					Your browser does not support HTML5 video.
+				      </video>
+-->
+	      <p>(Video 4 mins 41 secs)</p>
+	    </div>
+	  </section>
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Assumptions (Normality)</h3>
+	    <div style="text-align:center">
+	      <p>Validating the assumptions of a general linear model</p>
+
+<iframe title='Embedded Media titled: GLM_assumptions4' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658180&node=3141428&a=197984392&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--
+				      <video width="800" controls>
+					<source src="video/GLM_assumptions4.webm" type="video/webm">
+					<source src="video/GLM_assumptions4.m4v" type="video/mp4">
+					Your browser does not support HTML5 video.
+				      </video>
+-->
+	      <p>(Video 1 min)</p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Assumptions (Overview)</h3>
+	    <div style="text-align:center">
+	      <p>Validating the assumptions of a general linear model</p>
+
+<iframe title='Embedded Media titled: GLM_assumptions5' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658181&node=3141429&a=29869408&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--
+			       <video width="800" controls>
+				 <source src="video/GLM_assumptions5.webm" type="video/webm">
+				 <source src="video/GLM_assumptions5.m4v" type="video/mp4">
+				 Your browser does not support HTML5 video.
+			       </video>
+-->
+	      <p>(Video 2 mins 14 sec)</p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>R Code for the above example</h3>
+
+	    <div class='greybox'>
+	      The R code below uses the <code>lm()</code> command to fit and display the general linear model shown in the video above.
+	      <pre><code class="R" data-trim>
+		  # Fit a general linear model to the relationship between
+		  # height and weight for women and men
+		  m = lm(HEIGHT~1+SEX, data=human)
+
+		  # Produce residuals versus fitted plot (homogeneity of variance)
+		  plot(m, which=1)
+
+		  # Produce QQ plot of the residuals (normality)
+		  plot(m, which=2)
+	      </code></pre>
+	      
+	      <p>R will produce four validation plots by default</p>
+	      <pre><code class="R" data-trim>
+		  # Display the default four validation plots
+		  plot(m)
+	      </code></pre>
+	    </div>
+	  </section>
+
+	</section>	  
+
+	
+	<!-- ########################################## -->
+	
+	<section>
+	  <section>
+	    <h2 id="title">Violation of Assumptions</h2>
+	    <div class='greybox'>
+	      <p>
+		The assumptions of <strong>homogeneity of variance</strong> and  <strong>normality</strong> can be validated by looking at the residuals from a fitted general linear model. </p>
+	      <p>
+		<strong>General linear models are fairly robust</strong> to mild violations of the assumptions. They are most robust to departures from normality.
+	      </p>
+	      <p>
+		Below we give some examples of <strong>residual versus fitted plots</strong> and <strong>quantile-quantile plots</strong> from fitted general linear models that suggest one of these two assumptions has been violated.</p>
+	    </div>	  
+	  </section>
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h4>Violation of Normality</h4>
+	    <div class='greybox'>
+		This example fits a general linear model with two means (i.e. two fitted values)
+	    </div>	    
+
+	    <IMG src='images/violation1.png' alt="A histogram (left) and QQ-plot (right) showing violation of the normality assumption (right skewed residuals).">
+	    <div class='greybox'>
+	      This quantile-quantile plot (right) shows that the residuals are right-skewed. The normality assumption is violated.
+	    </div>
+	  </section>	      
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h4>Violation of Normality</h4>
+	    <div class='greybox'>
+		This example fits a general linear model with two means  (i.e. two fitted values)
+	   </div>
+	    <IMG src='images/violation2.png' alt="A histogram (left) and QQ-plot (right) showing violation of the normality assumption (under--dispersed residuals).">
+	    <div class='greybox'>
+	      This quantile-quantile plot (right) shows that the residuals are under-dispersed. The normality assumption is violated.
+	    </div>
+	  </section>	      
+
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h4>Violation of Homogeneity of Variance</h4>
+	    <div class='greybox'>
+		This example fits a general linear model with two means  (i.e. two fitted values)
+	  </div>
+	    <IMG src='images/violation3.png' style="width:60%" alt="A residual versus fitted plot showing violation of homogeneity of variance. There is more variability around one mean compared to the other">
+	    <div class='greybox'>
+	      The residual versus fitted plot (left) shows more variability around one mean compared to the other. The homogeneity of variance assumption is violated. The normality assumption is also questionable.
+	    </div>
+	  </section>	      
+
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h4>Violation of Homogeneity of Variance</h4>
+	    <div class='greybox'>
+		This example fits a straight line relationship
+	    </div>
+	    <IMG src='images/violation5.png' style="width:60%" alt="A residual versus fitted plot (left) showing violation of homogeneity of variance. Variability in the residuals increases with increasing fitted values.">
+	    <div class='greybox'>
+	      The residual versus fitted plot (left) shows a funnel-shaped pattern in the residuals (variability increases with increasing fitted values). The homogeneity of variance assumption is violated.
+	    </div>
+	  </section>	      
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h4>Violation of Homogeneity of Variance</h4>
+	    <div class='greybox'>
+		This example fits a straight line relationship
+	   </div>
+	    <IMG src='images/violation4.png' alt="A residual versus fitted plot (left) showing violation of homogeneity of variance. The residuals show a U-shaped pattern.">
+	    <div class='greybox'>
+	      The residual versus fitted plot (left) shows a curved 'U-shaped' pattern in the residuals (red line). The homogeneity of variance assumption is violated because the relationship in the data is not linear.
+	    </div>
+	  </section>	      
+
+	  
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h4>Violation of Homogeneity of Variance</h4>
+	    <div class='greybox'>
+	     	This example fits a straight line relationship
+	    </div>
+	    <IMG src='images/violation6.png'  alt="A residual versus fitted plot (left) showing violation of homogeneity of variance. The residuals show a n-shaped pattern.">
+	    <div class='greybox'>
+	      The residual versus fitted plot (left) shows a curved 'n-shaped' pattern in the residuals (red line). The homogeneity of variance assumption is questionable because the relationship in the data is not linear.
+	    </div>
+	  </section>	      
+
+	</section>
+	
+	
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id="title">More 'synonyms'</h2>
+	  <div class='greybox'>
+	    <p>General linear models bring together many classical methods into a single approach. The classical terminology is still used even if the statistical model is a general linear model. </p>
+	    <p>Below are some examples you will come across:</p>
+
+	    <div style='font-size:70%'>
+	      <table>
+		<thead>
+		  <th>Classical term</th>
+		  <th>General linear model equivalent</th>
+		</thead>
+		<tbody>
+		  <tr><td>ANOVA (analysis of variance)</td><td>A general linear model where all explanatory variables (usually no more than two) are qualitative (i.e. factors)</td></tr>
+		  <tr><td>t-test</td><td>A general linear model with one qualitative explanatory variable with two levels</td></tr>
+		  <tr><td>Linear regression</td><td>A general linear model with one quantitative continuous explanatory variable, and an expected straight-line relationship between response and explanatory variable</td></tr>
+		  <tr><td>ANCOVA (analysis of covariance)</td><td>A general linear model with two explanatory variables (one quantitative continuous and one qualitative).</td></tr>
+		</tbody>	   
+	      </table>
+	    </div>
+	  </div>	  
+
+	</section>
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id="title">Key Points</h2>
+	  <div class='greybox'>
+	    <ul>
+	      <li>General linear models are statistical models</li>
+	      <li>Randomness in the data is always described with a normal distribution</li>
+	      <li>To be useful the model's assumptions must be valid</li>
+	      <li>The majority of model assumptions are about the residuals</li>
+	      <li>Use graphical approaches to test assumptions</li>
+	      <li>Some model assumptions are best thought of when designing a data collection scheme</li>
+	    </ul>
+	  </div>
+	</section>
+
+      </div>
+    </div>
+    
+    <!-- ########################################## -->
+
+    
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>	
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+
+	  // Display presentation control arrows
+	  controls: true,
+	  
+	  // Transition style
+	  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+
+  </body>
+</html>

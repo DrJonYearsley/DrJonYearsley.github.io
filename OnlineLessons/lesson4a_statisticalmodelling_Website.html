@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Statistical Modelling</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px">
+	  </div>
+
+	  <h2>Statistical Modelling</h2>
+	  <h4>Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id="title">What will you learn?</h2>
+
+	  <div class='greybox'>
+	    <p>
+	      In this lesson you will learn to:
+	      </p>
+	    <ol>
+	      <li>Describe the concept of a statistical model</li>
+	      <li>Explain some examples of how statistical models are used</li>
+	      <li>Describe how one data set can be described by several statistical model</li>
+	    </ol>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <section  data-background-image='images/definition.jpg'  data-background-opacity=0.5>
+	    <h2  id="title">Definition</h2>
+
+	    <div class='greybox'>
+	      <p>
+		A <strong>statistical model</strong> is a theoretical distribution. It aims to describe a variable from a <em>population</em>. Observations from the population (i.e. the <em>sample</em>) are used to find plausible values for the <em>parameters</em> of the statistical model.
+	      </p>
+	      <p>
+		Statistical models are used to:
+		<ul>
+		  <li>Infer properties of a population</li>
+		  <li>Test hypotheses about a population</li>
+		</ul>
+	      </p>
+	      <p>
+		Below are a couple of videos giving introductory examples of statistical modelling.
+	      </p>
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+	  <section  data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Introductory Dice Example</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Statistical_model_intro1_dice' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658186&node=3141520&a=157601785&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	  <!--	 
+	      <video width="798" height="442" controls>
+		<source src="video/Statistical_model_intro1_dice.webm" type="video/webm">
+		  <source src="video/Statistical_model_intro1_dice.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 2 mins 45 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>Introductory Human Height Example</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Statistical_model_intro2_height' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=660616&node=3157047&a=145030579&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+
+	      <!--	 	    
+	      <video width="798" height="442" controls>
+		<source src="video/Statistical_model_intro2_height.webm" type="video/webm">
+		  <source src="video/Statistical_model_intro2_height.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+-->
+	      
+	      <p>
+		(Video 2 mins 8 sec)
+	      </p>
+	    </div>	    
+	  </section>	  
+	</section>
+
+	<!-- ########################################## -->
+
+	<!-- Statistical modelling intro - human height-->
+
+	<section>	  
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h2  id="title">Infering the Average of a Population</h2>
+
+	    <div class='greybox'>
+	      <p>
+		We use the human height data (HEIGHT.CSV) to illustrate the use of a 
+		statistical model to <strong>infer</strong> a property (the average) of a population.
+	      </p>
+
+	      <div class='textbox'>
+		<p>
+		  <strong>Question:</strong> <br>What is the average height of women aged 20-30 years in the USA?
+		</p>
+	      </div>
+	      <p>
+		We will infer two numbers: 
+		<ul>
+		  <li>an estimate of the average height of women</li>
+		  <li>an estimate of the uncertainty in this estimated average</li>
+		</ul>
+	      </p>	      
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>Example: Infering an Average</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Statistical_model_height_inference' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658185&node=3141519&a=195186476&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	 <!--	    
+	      <video width="798" height="442"  controls>
+		<source src="video/Statistical_model_height_inference.webm" type="video/webm">
+		  <source src="video/Statistical_model_height_inference.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+	      </video>
+	   -->   
+	      <p>
+		(Video 3 mins 33 sec)
+	      </p>
+
+	    </div>	    
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>R code for Human Height Hodel</h3>
+	    
+	    <div class='greybox'>
+	      Code to simulate one data sample from the statistical model (a normal distribution):	      
+	      <pre><code class="R" data-trim data-noescape>
+		  # Sample's mean and standard deviation
+		  sample_mean = 1.63201
+		  sample_sd = 0.063306
+
+		  # Number of observations in the sample
+		  n_obs = 1364
+
+		  # Simulate one sample from a normal distribution
+		  # with the same number of observations as the sample
+		  sim = rnorm(n_obs, mean=sample_mean, sd=sample_sd)
+	      </code></pre>
+	      
+	      Try running this code in R and calculating the mean of the simulated sample (variable <em>sim</em>).
+	    </div>
+	  </section>
+
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>Uncertainty in an estimate</h3>
+	    
+	    <div class='greybox'>
+	      The distribution of means from 10,000 simulated samples is:
+	      <div style="text-align:center"> 
+		<IMG src='images/sample_distribution.png'>
+	      </div>
+	      The standard deviation of this distribution is one measure of uncertainty in the mean, called the <strong>standard error of the mean</strong>. <br>
+	      The standard deviation from the histogram above is 0.0017 m.
+	      <p>Our final answer is:
+	      <blockquote>
+		The average height of women aged 20-30 years in the USA is 1.632 m (s.e. = 0.002 m).
+	      </blockquote>
+	      </p>
+	      
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>Statistical Theory</h3>
+	    
+	    <div class='greybox'>
+	      <p>
+		Instead of simulating from the statistical model, statistical theory can be used to obtain the uncertainty in the estimated population mean.
+	      </p>
+	      <div class='textbox'>
+		<p>Statistical theory says that:
+		  $$\text{Standard deviation of estimated means}=\frac{\sigma}{\sqrt{n}}$$
+		  where $\sigma$ is estimated by the standard deviation of a sample and $n$ is the number of observations in the sample.
+		</p>
+	      </div>
+	      <p>
+		Use $\sigma=$0.063306 m and $n=$1364 observations, to see how this theory compares to our simulated result.
+	      </p>
+	     
+	    </div>
+	  </section>
+
+	</section>
+	
+	<!-- ########################################## -->
+
+	<!-- Statistical modelling intro - rolling a dice... biased? -->
+
+	<section>	  
+	  <section  data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h2  id="title">Testing a Hypothesis</h2>
+
+	    <div class='greybox'>
+	      <p>
+		We are going to use the dice example to illustrate the idea of using statistical models to test a hypothesis. 
+	      </p>
+	      
+	      <div class='textbox'>
+		<p>
+		  <strong>Question:</strong> Is our dice biased?
+		</p>
+	      </div>
+	      <p>
+		The two possible answers to this question can be written as hypotheses:
+	      </p>
+	      <p>
+		<strong>Hypothesis (H<sub>1</sub>):</strong> The dice is biased.
+	      </p>
+	      <p>
+		<strong>Null-Hypothesis (H<sub>0</sub>):</strong> The dice is unbiased.
+	      </p>
+	    </div>
+	    
+	  </section>
+
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h2>Sample Data versus Population</h2>
+	    <div class='greybox'>
+	      <p>
+		I have a dice that I have rolled 20 times, giving these results:
+	      </p>
+	      <p>
+		<IMG src='images/dice_face_5.png' style='width:40px'>
+		<IMG src='images/dice_face_6.png' style='width:40px'>
+		<IMG src='images/dice_face_1.png' style='width:40px'>
+		<IMG src='images/dice_face_3.png' style='width:40px'>
+		<IMG src='images/dice_face_2.png' style='width:40px'>
+		<IMG src='images/dice_face_3.png' style='width:40px'>
+		<IMG src='images/dice_face_1.png' style='width:40px'>
+		<IMG src='images/dice_face_4.png' style='width:40px'>
+		<IMG src='images/dice_face_3.png' style='width:40px'>
+		<IMG src='images/dice_face_3.png' style='width:40px'>
+	      </p>
+	      <p>
+		<IMG src='images/dice_face_6.png' style='width:40px'>
+		<IMG src='images/dice_face_3.png' style='width:40px'>
+		<IMG src='images/dice_face_1.png' style='width:40px'>
+		<IMG src='images/dice_face_1.png' style='width:40px'>
+		<IMG src='images/dice_face_2.png' style='width:40px'>
+		<IMG src='images/dice_face_1.png' style='width:40px'>
+		<IMG src='images/dice_face_6.png' style='width:40px'>
+		<IMG src='images/dice_face_4.png' style='width:40px'>
+		<IMG src='images/dice_face_5.png' style='width:40px'>
+		<IMG src='images/dice_face_1.png' style='width:40px'>
+	      </p>
+	      <p>
+		This is a <strong>sample</strong> of 20 observations from the <strong>population</strong>.
+	      </p>
+	      <p>
+		In this case, the population is an infinite number of rolls of this dice (we will never have complete information about this population).
+	      </p>
+	    </div>
+	    
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Example: Is a dice biased?</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Statistical_model_dice' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=660615&node=3157044&a=196127318&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	    <!--
+	      <video width="798" height="442"  controls="true">
+		<source src="video/Statistical_model_dice.m4v" type="video/mp4"/>
+		<source src="video/Statistical_model_dice.webm" type="video/webm"/>
+		Your browser does not support HTML5 video.
+	      </video>
+	      -->
+	      <p>
+		(Video 5 mins 19 sec)
+	      </p>
+
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+
+	  <section  data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>R Code for Dice Models</h3>
+
+	    
+	    <div class='greybox'>
+	      Code to input observed data from 20 dice rolls:	      
+	      <pre><code class="R" data-trim data-noescape>
+		  # The observed data from 20 dice rolls
+		  dice_data = c(5, 6, 1, 3, 2, 3, 1, 4, 3, 3, 6, 3, 1, 1, 2, 1, 6, 4, 5, 1)
+	      </code></pre>
+	      
+	      Code to simulate 20 dice rolls from the H<sub>0</sub> model: 	      
+	      <pre><code class="R" data-trim data-noescape>
+		  # Define the categorical distribution for the null, H0 model
+		  outcomes = c(1, 2, 3, 4, 5, 6)  # All possible outcomes from a dice
+		  probability_H0 = c(1/6, 1/6, 1/6, 1/6, 1/6, 1/6) # Outcome probabilities
+
+		  # Create one simulation of 20 dice rolls using the null-hypothesis model
+		  sample(outcomes, size=20, prob=probability_H0, replace=T) 
+	      </code></pre>
+
+	      Code to simulate 20 dice rolls from the H<sub>1</sub> model: 	      
+	      <pre><code  class="R" data-trim data-noescape>
+		  # Define the categorical distribution for the H1 model
+		  outcomes = c(1,2,3,4,5,6)  # All possible outcomes from a dice
+		  probability_H1 = c(6/20, 2/20, 5/20, 2/20, 2/20, 3/20) # Outcome probabilities
+
+		  # Create one simulation of 20 dice rolls using the null-hypothesis model
+		  sample(outcomes, size=20, prob=probability_H1, replace=T) 
+	      </code></pre>
+	    </div>
+	    
+	  </section>
+	  
+
+          <!-- ************************* -->
+	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Quantifying Bias: a Test Statistic</h3>
+	    <div class='greybox'>
+	      <p>
+		The bias from 20 dice rolls can be quantified by calculating a <a href='https://en.wikipedia.org/wiki/Statistic' target='_blank'>statistic</a>.
+
+		$$\text{Bias} = \sum_{i=1}^6 (p_i - 1/6)^2$$
+
+		where $p_i$ is the relative frequency of the i<sup>th</sup> outcome. If the number one appeared six times in 20 rolls, $p_i=6/20$.
+	      </p>
+	      <p>An unbiased dice has $\text{Bias}=0$<br>
+		A biased dice that always rolled a one has $\text{Bias}=5/6$.
+	      </p>
+
+	      <blockquote>
+		<p>
+		  Our 20 observations give a bias of 0.0383.
+		</p>
+	      </blockquote>
+	      <p>We will test for bias in our dice using this <strong>test statistic</strong></p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>How extreme is the bias in our data?</h3>
+	    <div class='greybox'>
+	      <p>
+		Using the null-model to simulate 10000 sets of data, each containing 20 dice rolls, we can calculate the <strong>distribution of bias</strong> from an unbiased dice.
+	      </p>
+	      <div style="text-align:center"> 
+		<IMG src='images/bias_histogram.png' style='width:800px'>
+	      </div>
+	      <p>
+		From this distribution we can calculate that 51% of the simulated data had a bias at least as large as the observed bias of 0.0383.
+	      </p>
+	      <div class='textbox'><strong>Conclusion:</strong> There is no evidence from these data that the dice is biased.</div>
+
+	      
+	    </div>
+
+	  </section>
+	</section>	  
+
+	
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2  id="title">Key Points</h2>
+	  <div class='greybox'>
+	    <ul>
+	      <li>Research questions are about the population not the sample</li>
+	      <li>A statistical model aims to describe the distribution of data from the population</li>
+	      <li>The parameters of a statistical model are estimated from a sample of data</li>
+	      <li> A statistical model can be used to simulate a sample of data</li>
+	      <li>A statistical model can be used to estimate the mean of a population</li>
+	      <li>A statistical model can be used to estimate the uncertainty in an estimate (the standard error)</li>
+	      <li>Hypotheses can be tested by comparing two statistical models: a null-model and an alternative-model</li>
+	    </ul>
+	  </div>
+
+	</section>
+
+	
+	
+	<!-- ########################################## -->
+
+      </div>
+    </div>
+
+
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>	
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+
+	  // Display presentation control arrows
+	  controls: true,
+	  
+	  // Transition style
+	  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+
+
+  </body>
+</html>

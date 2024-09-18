@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Null-Hypothesis Testing</title>
+
+    
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px" alt="UCD logo">
+	  </div>
+
+	  <h2>Null-Hypothesis Testing</h2>
+	  <h4>Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg" alt="">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id='title'>What will you learn?</h2>
+
+	  <div class='greybox'>
+	    <p>
+	      In this lesson you will learn to:
+	    </p>
+	    <ol>
+	      <li>Describe the two common methodologies for null-hypothesis testing</li>
+	      <li>Define a p-value</li>
+	      <li>List some limitations of hypothesis testing methodology</li>
+	    </ol>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <section>
+	    <h2 id='title'>Methodology (Part 1)</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Null_hypothesis_testing_part1' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658183&node=3141478&a=94097941&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+
+	      <!--
+		  <video width="800" controls>
+		    <source src="video/Null_hypothesis_testing_part1.webm" type="video/webm">
+		    <source src="video/Null_hypothesis_testing_part1.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+		  </video>
+		  -->
+	      <p>
+		(Video 3 mins 10 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Methodology (Part 2)</h3>
+
+	    <div style="text-align:center">
+
+	      <iframe title='Embedded Media titled: Null_hypothesis_testing_part2' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658184&node=3141479&a=36760824&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--
+		  <video width="800" controls>
+		    <source src="video/Null_hypothesis_testing_part2.webm" type="video/webm">
+		    <source src="video/Null_hypothesis_testing_part2.m4v" type="video/mp4">
+		    Your browser does not support HTML5 video.
+		  </video>
+		  -->
+	      <p>
+		(Video 3 mins 57 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+
+          <!-- ************************* -->
+	  
+	  
+	  <section  data-background-image='images/justice.jpg'  data-background-opacity=0.5>
+	    <h3>Analogy to a court of law</h3>
+
+	    <div class='greybox'>
+	      <div style="font-size:80%; text-align:left">
+		<table>
+		  <thead>
+		    <th></th>
+		    <th>H<sub>0</sub> Testing</th>
+		    <th>Court of Law</th>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>Question:</td><td>Is H<sub>0</sub> false?</td><td>Is the defendant guilty?</td>
+		    </tr>
+		    <tr>
+		      <td>Starting position:</td><td>H<sub>0</sub> is presumed 'true'</td><td>Defendant is presumed innocent until proven guilty</td>
+		    </tr>
+		    <tr>
+		      <td>Evidence:</td><td>Test is based solely upon sample data</td><td>Decision of jury based solely upon the presented evidence</td>
+		    </tr>		    
+		    <tr>
+		      <td>Errors:<br>False negative</td><td>Insufficient evidence to find H<sub>0</sub> false</td><td>Guilty defendant is found inocent</td>
+		    </tr>
+		    <tr>
+		      <td>Errors:<br>False positive</td><td>H<sub>0</sub> is incorrectly found false</td><td>An inocent defendant is found guilty</td>
+		    </tr>		    
+		  </tbody>
+		</table>
+	      </div>
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Methodology Overview</h3>
+
+	    <div class='greybox'>
+	      <p>
+		Below is a summary of the two broad methodologies. Fisher's methodology in 
+		black and Neyman and Pearson's extension in <span style='color:#0000FF'>blue</span>.
+	      </p>
+	      <p>
+		<ol>
+		  <li><span style='color:#0000FF'>Define a <strong>critical significance level</strong> (this is commonly taken to be 0.05, and called the alpha level, $\alpha=0.05$).</span></li>
+		  <li>Calculate a <strong>test statistic</strong>  (e.g. F-ratio).</li>
+		  <li>Calculate the <strong>p-value</strong> </li>
+		  <li><span style='color:#0000FF'>
+		      Make a black and white decision based on $\alpha$:
+		      <ul>
+			<li>p-value $<\alpha$ we <strong>reject</strong> H<sub>0</sub>.</li>
+					      <li>p-value $\ge \alpha$ then the we <strong>fail to reject</strong> H<sub>0</sub>.</li>
+		    </ul></span>
+		  </li>
+		</ol>
+	      </p>
+	      <p>An effect is often said to be <em>statistically significant</em> when H<sub>0</sub> is rejected.</p>
+
+	      <p>
+		In the end, the scientist uses the results together with other evidence, and estimated effect sizes, to draw a biological conclusion from the analysis.
+	      </p>
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+
+
+	  <section  data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>R code for null hypothesis testing</h3>
+	    
+	    <div class='greybox'>
+	      Code to fit general linear models to the human height data and perform the hypothesis testing.	      
+	      <pre><code class="R" data-trim data-noescape>
+		  # Fit models for the hypothesis and the null-hypothesis
+		  m1 = lm(HEIGHT~1+SEX, data=human) # Hypothesis model
+		  m0 = lm(HEIGHT~1, data=human)     # Null-hypothesis model
+
+		  # Compare these two models
+		  anova(m0, m1)
+	      </code></pre>
+
+	      Code to estimate effect sizes using <code>emmeans</code> package.	      
+	      <pre><code class="R" data-trim  data-noescape>
+		  library(emmeans)  # load emmeans package
+		  
+		  # Estimate effect of SEX on HEIGHT
+		  m_effect = emmeans(m1, spec='SEX') 
+		  
+		  # Print effect sizes and 95% confidence intervals
+		  confint(m_effect) 
+	      </code></pre>
+
+	    </div>
+	  </section>
+	</section>
+
+	<!-- ########################################## -->
+
+	<section>	  
+	  <section  data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h2 id='title'>Example 1 (Is a dice biased?)</h2>
+
+	    <div class='greybox'>
+	      <p>
+		We have already seen this example when discussing statistical modelling. 
+	      </p>
+	      
+	      <div class='textbox'>
+		<p>
+		  <strong>Question:</strong> Is our dice biased?
+		</p>
+	      </div>
+	      <p>
+		The two possible answers to this question can be written as hypotheses:
+	      </p>
+	      <p>
+		<strong>Hypothesis (H<sub>1</sub>):</strong> The dice is biased.
+	      </p>
+	      <p>
+		<strong>Null-Hypothesis (H<sub>0</sub>):</strong> The dice is unbiased.
+	      </p>
+	    </div>
+	    
+	  </section>
+
+	  
+          <!-- ************************* -->
+	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h2>Sample Data versus Population</h2>
+	    <div class='greybox'>
+	      <p>
+		I have a dice that I have rolled 20 times, giving these results:
+	      </p>
+	      <p>
+		<IMG src='images/dice_face_5.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_6.png' style='width:40px'  alt="">
+		<IMG src='images/dice_face_1.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_3.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_2.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_3.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_1.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_4.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_3.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_3.png' style='width:40px' alt="">
+	      </p>
+	      <p>
+		<IMG src='images/dice_face_6.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_3.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_1.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_1.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_2.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_1.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_6.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_4.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_5.png' style='width:40px' alt="">
+		<IMG src='images/dice_face_1.png' style='width:40px' alt="">
+	      </p>
+	      <p>
+		This is a <strong>sample</strong> of 20 observations from the <strong>population</strong>.
+	      </p>
+	      <p>
+		In this case, the population is an infinite number of rolls of this dice (we will never have complete information about this population).
+	      </p>
+	    </div>
+	    
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Step 0: Define a critical significance level</h3>
+
+	    <div class='greybox'>
+	      We follow the common convention:
+	      $$
+	      \alpha  = 0.05
+	      $$
+	    </div>
+	  </section>
+
+          <!-- ************************* -->	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Step 1: Calculate a test statistic</h3>
+
+	    <div class='greybox'>
+	      <p>We will use our measure of bias as a test statistic:
+		$$
+		\text{Bias} = \sum_{i=1}^6 (p_i - 1/6)^2
+		$$
+		where $p_i$ is the observed relative frequeny of the i<sup>th</sup> outcome.
+	      </p>
+	      <p>
+		For our data sample: <br>
+		$p_1=0.3$, $p_2=0.1$, $p_3=0.25$, $p_4=0.1$, $p_5=0.1$, $p_6=0.15$</br>
+	      </p>
+	      <p>
+		Giving
+		$$
+		\text{Bias} = 0.0383
+		$$
+	      </p>
+	    </div>
+	  </section>
+
+	  <!-- ************************* -->
+	  
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Step 2: Calculate a p-value</h3>
+
+	    <div class='greybox'>
+	      <p>What is the probability that a fair dice will give a bias as large as 0.0383? (the answer to this is the p-value)</p>
+	      <p>Below is the distribution of bias from a fair dice (this distribution is calculated from the categorical distribution).</p>
+	      <div style="text-align:center"> 
+		<IMG src='images/dice_pdf_theory.png' style='width:400px' alt="The theoretical distribution of bias from a sample of roles of a dice that is unbiased">
+	      </div>
+
+	      <p>
+		Using this distribution, the p-value is calculated as
+		$$
+		p = 0.51
+		$$
+	      </p>
+	    </div>
+	  </section>
+
+	  <!-- ************************* -->
+	  
+	  <section   data-background-image='images/dice2.jpg'  data-background-opacity=0.5>
+	    <h3>Step 3: Make a decision</h3>
+
+	    <div class='greybox'>
+	      <p>The p-value (=0.51) is greater than 5%</p>
+	      <p>So we <strong>fail to reject</strong> our null-hypothesis</p>
+	      <p>We have no evidence from our data that this dice is biased</p>
+	    </div>
+	  </section>
+	</section>
+	
+
+
+	<!-- ########################################## -->
+
+	<section>	  
+	  <section  data-background-image='images/height.jpg'  data-background-opacity=0.5>
+	    <h2 id='title'>Example 2 (Human heights)</h2>
+
+	    <div class='greybox'>
+	      <p>
+		This is the example discussed in the videos
+	      </p>
+	      
+	      <div class='textbox'>
+		<p>
+		  <strong>Question:</strong> <br>Is the average height of adult men diffreent from adult women?
+		</p>
+	      </div>
+	      <p>
+		The two possible answers to this question can be written as hypotheses:
+	      </p>
+	      <p>
+		<strong>Hypothesis (H<sub>1</sub>):</strong> The average height of adult women differs from that of adult men
+	      </p>
+	      <p>
+		<strong>Null-Hypothesis (H<sub>0</sub>):</strong> The average height of adult women is the same as that of adult men.
+	      </p>
+	    </div>    
+	  </section>
+
+          <!-- ************************* -->	  
+
+	  <section  data-background-image='images/height.jpg'  data-background-opacity=0.5>
+	    <h3>Step 0: Define a critical significance level</h3>
+
+	    <div class='greybox'>
+	      We follow the common convention:
+	      $$
+	      \alpha  = 0.05
+	      $$
+	    </div>
+	  </section>
+
+          <!-- ************************* -->	  
+
+	  <section  data-background-image='images/height.jpg'  data-background-opacity=0.5>
+	    <h3>Step 1: Calculate a test statistic</h3>
+
+	    <div class='greybox'>
+	      <p>
+		A general linear model is an appropriate statisical model. So we fit general linear models for
+		the H<sub>1</sub> and  H<sub>0</sub> hypotheses and use an <strong>F-ratio</strong> as our test statistic.
+	      </p>
+	      <pre><code  class="R" data-trim data-noescape>
+		  # Fit models for the hypothesis and the null-hypothesis
+		  m1 = lm(HEIGHT~1+SEX, data=human) # Hypothesis model
+		  m0 = lm(HEIGHT~1, data=human)     # Null-hypothesis model
+
+		  # Compare these two models
+		  anova(m0, m1)
+	      </code></pre>
+	      <p>
+		The anova command calculates the F-ratio to be 2238. 
+	      </p>
+	      <p>
+		This F-ratio means that there is a large distance between the two models.
+	      </p>	      
+	    </div>
+	  </section>
+
+	  <section  data-background-image='images/height.jpg'  data-background-opacity=0.5>
+	    <h3>Step 2: Calculate the p-value</h3>
+
+	    <div class='greybox'>
+	      <p>
+		Below is the distribution of F-ratios that we would expect if the null-hypothesis were true.
+	      </p>
+	      
+	      <div style="text-align:center; font-size:70%" >
+		
+		<IMG src='images/F_dist.png' style='width:400px' alt="An example of the F distribution">
+		<p>
+		  Notice that the smallest possible F-ratio is zero.
+		</p>
+	      </div>
+	      <p>
+		An F-ratio greater than 10 is exceedingly unlikely.
+	      </p>
+	      <p>
+		Using this distribution, the p-value is calculated as
+	      </p>
+	      <p style="text-align:center">
+		<em>p</em><10<sup>-15</sup>
+			    </p>
+	    </div>
+	  </section>
+
+	  <section  data-background-image='images/height.jpg'  data-background-opacity=0.5>
+	    <h3>Step 3: Make a decision</h3>
+
+	    <div class='greybox'>
+	      <p>
+		The p-value (<em>p</em><10<sup>-15</sup>) is well below 5%<br> (it is so small the computer can only give an upper bound).
+							  </p>
+	      <p>
+		So we <strong>reject</strong> the null-hypothesis.
+	      </p>
+	      <div class='textbox' style="width:80%">
+		There is evidence of a difference in the average heights of men and women (<em>F</em><sub>1,2296</sub>=2239, <em>p</em><10<sup>-15</sup>).
+																	 </div>											
+	      <p>
+		It is also important to <strong>state the estimated effect size and its uncertainty</strong>.
+	      </p>
+	      <div class='textbox'>
+		On average, adult men are 0.130 m (95% CI: 0.124 - 0.135) taller than women.
+	      </div>
+	    </div>
+	  </section>	  
+	</section>
+	
+	<!-- ########################################## -->
+	
+	<section  data-background-image='images/caution.jpg'  data-background-opacity=0.5>
+	  <h2 id='title'>Some limitations...</h2>
+	  
+	  <div class='greybox'>
+	    <ul>
+	      <li>We can never use a p-value as evidence that H<sub>0</sub> is true<br>(since a p-value <em>assumes</em> H<sub>0</sub> to be true).</li>
+	      <li>A large p-value (close to 1) does not give evidence in favour of H<sub>0</sub>. A large p-value indicates that the data cannot discriminate between H<sub>0</sub> and H<sub>1</sub>.</li>
+	      <li>H<sub>0</sub> can always be rejected given enough observations.</li>
+	      <li>A p-value tells us nothing about the effect size.</li>
+	      <li>For decisions to be robust the fitted statistical model must be a valid description of the population.</li>
+	      <li>Performing multiple hypothesis tests can be challenging (see the lesson on <em>Errors and post-hoc tests</em>)</li>
+	    </ul>
+	    
+	  </div>
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id='title'>Key Points</h2>
+	  <div class='greybox'>
+	    <ul>
+	      <li>Null-hypothesis testing compares two fitted models (models corresponding to H<sub>0</sub> and H<sub>1</sub>)</li>
+	      <li>Null-hypothesis tests give evidence to reject the null-hypothesis</li>
+	      <li>The calculated p-value assumes H<sub>0</sub> is true</li>
+	      <li>Report estimated effect sizes (and uncertainties) along with hypothesis test results.</li>
+	    </ul>
+	  </div>
+	</section>
+
+      </div>
+    </div>
+    
+    
+    <!-- ########################################## -->
+
+
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>	
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+
+	  // Display presentation control arrows
+	  controls: true,
+	  
+	  // Transition style
+	  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+
+
+  </body>
+</html>

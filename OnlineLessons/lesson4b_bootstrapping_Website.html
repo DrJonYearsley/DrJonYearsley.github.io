@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Bootstrapping</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+  
+
+  
+  <body>	 
+    <div class="reveal">
+      <div class="slides">
+	
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px">
+	  </div>
+
+	  <h2>Bootstrapping</h2>
+	  <h4>Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id="title">What will you learn?</h2>
+
+	  <div class='greybox'>
+	    <p>In this lesson you will learn to:</p>
+	    
+	    <ol>
+	      <li>Describe when a bootstrap is used</li>
+	      <li>Describe the concept of bootstrapping</li>
+	      <li>Explain how it can be implemented in R</li>
+	    </ol>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <section>
+	    <h2  id="title">The concept of bootstrapping: I</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_intro' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658170&node=3141411&a=140645897&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_intro.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+
+-->
+	      <p>
+		(Video 3 mins 35 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+
+          <!-- ************************* -->
+
+
+	  <section>
+	    <h3>The concept of bootstrapping: II</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_explanation' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658169&node=3141410&a=167510041&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+
+	      
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_explanation.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+
+-->
+	      <p>
+		(Video 4 mins 51 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+	  
+	</section>	  
+
+
+
+
+	<!-- ########################################## -->
+	
+
+	<section>
+	  <h3  id="title">Bootstrapping in practice</h3>
+
+	  <div style="text-align:center"> 
+
+	    <iframe title='Embedded Media titled: bootstrap_algorithm' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658168&node=3141409&a=56156921&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	    
+<!--
+	    <video width="798" height="442" controls>
+	      <source src="video/bootstrap_algorithm.mp4" type="video/mp4">
+	      Your browser does not support HTML5 video.
+	    </video>
+-->
+
+	    <p>
+	      (Video 4 mins 23 sec)
+	    </p>
+	  </div>	    
+	</section>
+
+
+
+	<!-- ########################################## -->
+	
+	
+	<section>
+	  <section>
+	    <h2  id="title">Bootstrapping with R</h2>
+
+	    <div class='greybox'>
+	      <p>
+		Below we talk through an R script that implements a bootstrap. </p>
+	      <p>The R script can be downloaded from <a href="https://www.ucd.ie/ecomodel/OnlineLessons/bootstrap_example.R" target="_blank">https://www.ucd.ie/ecomodel/OnlineLessons/bootstrap_example.R</a>
+	      </p>
+	      <p>
+		The videos are split into 6 clips.
+		<ol>
+		  <li>Introduction</li>
+		  <li>Data import</li>
+		  <li>Data Subsetting</li>
+		  <li>Bootstrapping: steps 1-4</li>
+		  <li>Using square brackets [] in R</li>
+		  <li>Bootstrapping: step 5</li>
+		</ol>
+	      </p>
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+
+
+	  <section>
+	    <h3>Bootstrapping with R (intro)</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_R_intro' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658172&node=3141413&a=4045816&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_R_intro.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 53 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Bootstrapping with R (data import)</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_R_data_import' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658171&node=3141412&a=16877557&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_R_data_import.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 2 mins 53 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Bootstrapping with R (data subsetting)</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_R_subsetting' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658175&node=3141423&a=87514371&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_R_subsetting.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 3 mins 23 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Bootstrapping with R (steps 1-4)</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_R_steps_1_4' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658174&node=3141422&a=58264666&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_R_steps_1_4.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 6 mins 48 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Use of [] in R</h3>
+
+	    <div style="text-align:center"> 
+
+
+	      <iframe title='Embedded Media titled: bootstrap_square_brackets' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658176&node=3141424&a=120896867&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_square_brackets.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 2 mins 6 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Bootstrapping with R (step 5)</h3>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: bootstrap_R_step_5' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658173&node=3141414&a=90829884&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+<!--
+	      <video width="798" height="442" controls>
+		<source src="video/bootstrap_R_step_5.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	      </video>
+-->
+
+	      <p>
+		(Video 3 mins 4 sec)
+	      </p>
+	    </div>	    
+	  </section>
+
+	  
+	</section>	  
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2  id="title">Key Points</h2>
+	  <div class='greybox'>
+	    <ul>
+	      <li>Bootstrapping is used to quantify the uncertainty in an estimate (e.g. the uncertainty in the estimated mean of a population)</li>
+	      <li>Bootstrapping is a computationally intensive process</li>
+	      <li>Bootstrapping resamples the original data with replacement</li>
+	    </ul>
+	  </div>
+
+	</section>
+
+	
+	
+	<!-- ########################################## -->
+
+      </div>
+    </div>
+
+
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>	
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+
+	  // Display presentation control arrows
+	  controls: true,
+	  
+	  // Transition style
+	  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+
+  </body>
+</html>

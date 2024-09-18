@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Distributions</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+  <body>
+    <div class="reveal">
+      
+      <div class="slides">
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px">
+	  </div>
+	  <h2>Distributions</h2>
+	  <h4>Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id='title'>What will you learn?</h2>
+
+	  <div class='greybox'>
+	    <p>
+	      In this lesson you will learn to:
+	      </p>
+	    <ol>
+	      <li>Define a distribution</li>
+	      <li>Explain the concept of an empirical distribution</li>
+	      <li>Explain the concept of a theoretical distribution</li>
+	    </ol>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->	
+
+	<section>
+	  <section>
+
+	    <h2 id='title'>What is a distribution?</h2>
+
+	    <div class='greybox'>
+	      <p>
+		<em>A distribution decribes a variable by communicating two important pieces of information.</em>
+		<ol>
+		  <li> It <strong>specifies all the possible values</strong> that a variable may take (these can be called the possible <strong>outcomes</strong>).</li>
+		  <li>  It <strong>quantifies the relative frequency</strong> of each possible value (this can be called the <strong>probability</strong> of an outcome).</li>
+		</ol>
+	      </p>
+	      <p>
+		A distribution is very good at <strong>describing uncertainty</strong> because it can describe events that have multiple possible outcomes.
+	      </p>
+	      
+	      <p>
+		<em>Below are four examples</em>
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+
+	  <section data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    <h3>Rolling a Dice</h3>
+	    <div class = 'greybox'>	 
+
+	      <p>
+		Rolling a dice is a classic example of qualitative data (each face of the dice is labelled).</p>
+	      <p>
+		There are six possible outcomes from rolling a dice.</p>  
+	      <p>
+		For an unbiased dice each outcome is equally likely, meaning the <strong>distribution</strong> of outcomes is:
+		<table>
+		  <thead>
+		    <th>One</th>
+		    <th>Two</th>
+		    <th>Three</th>
+		    <th>Four</th>
+		    <th>Five</th>
+		    <th>Six</th>
+		  </thead>
+		  <tbody>
+		    <tr><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td><td>1/6</td></tr>
+		  </tbody>
+		</table>	  
+	      </p>
+	      <p>
+		The probability of each outcome is a sixth.
+	      </p>
+	      <p>
+		Later, we'll see that this is an example of a <a href="https://en.wikipedia.org/wiki/Categorical_distribution" target='_blank'>categorical distribution</a>.
+		</p>
+	    </div>
+	  </section>
+
+	 
+          <!-- ************************* -->
+
+	  
+	  <section data-background-image='images/cat.jpg' data-background-opacity=0.5>
+	    <h3>Counting Cats</h3>
+	    <div class = 'greybox'>	 
+	      <p>
+		For one week I recorded the number of times I saw my neighbours' cats in my garden and their coat colour.
+	      </p>
+	      <p>
+		Here are my data as a <strong>frequency distribution</strong>.
+		<table>
+		  <thead>
+		    <th>Black</th>
+		    <th>Ginger</th>
+		    <th>Tabby</th>
+		    <th>Tortoiseshell</th>
+		  </thead>
+		  <tbody>
+		    <tr><td>5</td><td>3</td><td>8</td><td>1</td></tr>
+		  </tbody>
+		</table>	  
+	      </p>
+	      <p>
+		Their are four outcomes (the coat colours). The frequency distribution gives the number of times each outcome occurred (e.g. I saw the Tabby cat eight times).
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+
+	  <section data-background-image='images/height.jpg' data-background-opacity=0.5>
+	    <h3>Human Heights</h3>
+	    <div class = 'greybox'>
+	      <p>
+		Human height data is <strong>quantitative continuous</strong>: Every individual has a different height.
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/height_histogram.png' style='width:700px'>
+	      </div>
+	      <p>
+		To display this <strong>continuous distribution</strong> we divide the x-axis (height) into bins (1 cm bins are used above) and count the number of data points within each bin (called FREQUENCY on the y-axis).
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section data-background-image='images/sun.jpg' data-background-opacity=0.5>
+	    <h3>Temperatures</h3>
+	    <div class = 'greybox'>	 
+	      <p>Below is the distribution of mean daily temperatures for January across Ireland. The data are from 1995-2016</p>
+	      <p>This temperature data is <strong>quantitative continuous</strong>. </p>
+	      <p>To display the distribution a bin width of 0.5 deg C has been used.
+		<div style="text-align:center"> 
+		  <img src='images/temperature_histogram.png' alt="Histogram of mean daily temperature for January in Ireland" style='width:700px'>
+		</div>		
+	    </div>
+	  </section>
+	</section>
+
+
+	
+	
+	<!-- ########################################## -->	
+
+
+
+	
+	<section>	  
+	  <section>
+	    <h2 id='title'>Empirical Distribution</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Empirical_distribution' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658188&node=3141524&a=134368428&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+
+	      
+	      <!--	 
+			 <video width="800" controls>
+			   <source src="video/Empirical_distribution.webm" type="video/webm">
+			   <source src="video/Empirical_distribution.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+
+			 -->
+			 
+	      <p>
+		(Video 1 min 17 sec)
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section data-background-image='images/wolf.jpg' data-background-opacity=0.5>
+	    <h3>Wolf Example</h3>
+
+	    <div  class='greybox'>
+	      <p>Below is the empirical distribution of cortisol concentrations measured from a sample of 103 wolves</p>
+	      <div style="text-align:center"> 
+		<img src='images/cortisol_histogram.png' alt="empirical distribution of cortisol concentrations" style='width:700px;height=300px'>
+	      </div>
+	      <p style='font-size:70%'>
+		This module uses these data on cortisol concentrations measured from hair samples of wolves in Canada (<a href='http://www.ucd.ie/ecomodel/Resources/datasets_WebVersion.html#wolfcsv' target='_blank'>described here</a>).
+	      </p>
+	    </div>
+	  </section>
+	</section>	  
+
+
+	
+
+
+	<!-- ########################################## -->	
+
+
+
+
+	
+	<section>	  
+	  <section>
+	    <h2 id='title'>Theoretical Distributions</h2>
+
+	    <div style="text-align:center"> 
+
+	      <iframe title='Embedded Media titled: Theoretical_distribution' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658187&node=3141523&a=94554195&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+	      
+	      <!--	 
+			 <video width="800" controls>
+			   <source src="video/Theoretical_distribution.webm" type="video/webm">
+			   <source src="video/Theoretical_distribution.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			 -->
+
+	      <p>(Video 1 min 58 sec)</p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Normal Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>The Normal distribution is a bell shaped curved that has a well defined  <a href='https://en.wikipedia.org/wiki/Normal_distribution' target='_blank'>mathematical description</a>.</p>
+
+	      <div style="text-align:center"> 
+		<img src='images/normal_distribution.png' style='width:700px;height=250px' alt="An example of the normal distribution">
+	      </div>	      
+	      <p style='font-size:70%'>
+		Above is a Normal distribution (blue curve) being used to mimic human height data  (<a href='http://www.ucd.ie/ecomodel/Resources/datasets_WebVersion.html#heightcsv' target='_blank'>described here</a>)
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Categorical Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>The <a herf='https://en.wikipedia.org/wiki/Categorical_distribution' target='_blank'>categorical distribution</a> describes the probabilities of a finite number of outcomes. The mathematical description of the categorical distribution is the probabilities for each outcome.</p>
+
+	      <div style="text-align:center"> 
+		<img src='images/dice_distribution.png' style='width:600px;height=200px' alt="An example of a categorical distribution for a six sided dice">
+	      </div>	      
+	      <p style='font-size:70%'>
+		Above is a catagorical distribution for the outcomes of rolling an unbiased dice. Each outcome has a probability of 1/6.
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Gamma Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>The Gamma distribution is a skewed theoretical distribution. It has a well defined  <a href='https://en.wikipedia.org/wiki/Gamma_distribution' target='_blank'>mathematical description</a>.</p>
+	      <div style="text-align:center"> 
+		<img src='images/gamma_distribution.png' style='width:600px;height=250px' alt="An example of five gamma distributions with differing amounts of skew">
+	      </div>	      
+	      <p style='font-size:70%'>Above are five Gamma distributions with differing amounts of (right) skew.</p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Log-normal Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>The log-normal distribution is another skewed theoretical distribution. It has a well defined  <a href='https://en.wikipedia.org/wiki/Log-normal_distribution' target='_blank'>mathematical description</a>.</p>
+
+	      <div style="text-align:center"> 
+		<img src='images/log_normal_distribution.png' style='width:600px;height=250px' alt="An example of a log-normal distribution">
+	      </div>	      
+	      <p style='font-size:70%'>Above are four log-normal distributions with differing amounts of (right) skew.</p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Binomial Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>
+		The binomial distribution describes the number of successes and failures from repeatedly performing a task with a constant probability of success.  It has a well defined  <a href='https://en.wikipedia.org/wiki/Binomial_distribution' target='_blank'>mathematical description</a>.
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/binomial_distribution.png' style='width:600px;height=200px' alt="An example of a binomial distribution">
+	      </div>	      
+	      <p style='font-size:70%'>Above is the binomial distribution for tossing a coin 10 times. The outcomes are the number of heads (ranging from zero to ten) and the distribution gives the probability of each outcome. </p>
+	    </div>
+	  </section>
+
+         <!-- ************************* -->
+
+	  <section>
+	    <h3>Chi-squared Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>
+		The Chi-squared distribution describes the distribution of outcomes from squaring values from a normal distribution and then adding them up.  It has a well defined  <a href='https://en.wikipedia.org/wiki/Chi-squared_distribution' target='_blank'>mathematical description</a>.
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/chisq_distribution.png' style='width:600px;height=200px' alt="An example of a chi-squared distribution">
+	      </div>	      
+	      <p style='font-size:70%'>Above is the distribution of outcomes by taking three values drawn from a normal distribuiton (with mean of zero and standard deviation of one), squaring each and adding up the results. This is a Chi-squared with three degrees of freedom. </p>
+	    </div>
+	  </section>
+	  
+         <!-- ************************* -->
+
+	  <section>
+	    <h3>Poisson Distribution</h3>
+
+	    <div class='greybox'>
+	      <p>
+		The Poisson distribution describes a <em>quantitative discrete</em> variable and is related to the binomial distribution. It has a well defined  <a href='https://en.wikipedia.org/wiki/Poisson_distribution' target='_blank'>mathematical description</a>.
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/poisson_distribution.png' style='width:600px;height=200px' alt="An example of a Poisson distribution">
+	      </div>	      
+	      <p style='font-size:70%'>Above is the Poisson distribution for describing the number of times a person will be <a href="https://www.weather.gov/safety/lightning-odds" target='_blank'>hit by lightning in their lifetime</a>, assuming the probability that a person is struck by lightning in their lifetime is about 15,000 to one.</p>
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Wolf Example</h3>
+
+	    <div class='greybox'>
+	      <p>The Gamma or log-normal distributions could both mimic the empirical distribution of the wolf cortisol data</p>
+	      <div style="text-align:center"> 
+		<img src='images/cortisol_mimic_distribution.png' style='width:700px;height=300px' alt="The empirical distribution of cortisol concentration from a sample of wolves and two theoretical distributions that model these empirical data.">
+	      </div>	      
+	      <p style='font-size:70%'>Above is the empirical distribution of cortisol (grey bars), a Gamma distribution (red) and a log-normal distribution (blue).
+	    </div>
+	  </section>	  
+	</section>
+
+
+
+
+	
+	<!-- ########################################## -->	
+
+
+
+
+	
+	<section>
+	  <section>
+	    <h2 id='title'>Distribution Shapes</h2>
+
+	    <div class = 'greybox'>	 
+	      <p>
+		A distribution can be broadly described by its shape. </p>
+	      <p>Below are some words used to describe a distribution's shape</p>
+	      <div style="text-align:center"> 
+		<IMG src='images/distribution_shapes.svg' alt="Some words describing the shapes of a distribution">
+	      </div>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+
+	  <section>
+	    <h3>Symmetrical</h3>
+
+	    <div class='greybox'>
+	      <p>
+		A symmetrical distribution looks identical when it is reflected around its centre</p>
+	      <p style='font-size:70%;color:#555'>
+		<em>Below is a <a href='https://en.wikipedia.org/wiki/Normal_distribution' target='_blank'>Normal distribution</a> with mean=12 and standard deviation=5</em>
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/symmetric.png' style='width:600px' alt="Example of a symmetric distribution">
+	      </div>
+	      <p>
+		The Normal distribution is symmetrical about its  mean
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Skewed (1)</h3>
+
+	    <div class = 'greybox'>
+	      <p>
+		A skewed distribution is asymmetrical.
+	      </p>
+	      <p style='font-size:70%;color:#555'>
+		<em>Below right is a <a href='https://en.wikipedia.org/wiki/Gamma_distribution' target='_blank'>Gamma distribution</a> with mean=12 and standard deviation=5. The symmetrical Normal distribution is shown in grey.</em>
+	      </p>
+
+	      <div style="text-align:center"> 
+		<img src='images/leftskew.png' style='width:350px' alt="An example of a left-skewed distribution">
+		<img src='images/rightskew.png' style='width:350px' alt="An example of a right-skewed distribution">
+	      </div>
+	      <p>
+		Right-skew (positive skew) has a distribution with an extended tail on the right 
+	      </p>
+	      <p>
+		Left-skew (negative skew) is the opposite of right-skew
+	      </p>
+	      <p  style='font-size:70%;color:#555'>Right-skew (left-skew) commonly causes the mean to be larger (smaller) than the median, because the mean is influenced by extreme values.</p>
+	    </div>
+	  </section>
+
+
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Skewed (2)</h3>
+
+ <div style="text-align:center"> 
+	    <iframe id="embed-iframe" allowTransparency="true" allow="encrypted-media *" allowfullscreen height="415" width="460" border="0" scrolling="no" frameborder="0" marginwheight="0" marginwidth="0" src="https://app.jove.com/embed/player?id=12594&t=1&s=1&fpv=1"><p>Types of skewness</p></iframe>
+
+	    <p>
+	      (Video 1 min 9 sec)
+	      </p>
+	    </div>
+	  </section>
+
+	  
+          <!-- ************************* -->
+
+	  <section>
+	    <h3>Over-dispersion</h3>
+
+	    <div class = 'greybox'>
+	      <p>
+		An over-dispersed distribution has an excess of extreme values (i.e. it has fat tails). 
+	      </p>
+	      <p style='font-size:70%;color:#555'>
+		<em>Below left is a <a href='https://en.wikipedia.org/wiki/Student%27s_t-distribution' target='_blank'>t-distribution distribution</a>, shifted to have mean=12 and standard deviation=5. The equivalent Normal distribution (no over-dispersion) is shown in grey. On the right is a zoom into the tail of the distribution showing the 'fat-tail'</em>
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/overdisp.png' style='width:400px' alt="An example of an over-dispersed distribution">
+		<img src='images/overdisp_tail.png' style='width:300px' alt="A zoom of the tail from an over-dispersed distribution">
+	      </div>
+	      <p >
+		Over-dispersed is also known as <em>platykurtic</em> (<em>platy</em>- means broad)
+	      </p>
+	    </div>
+	  </section>
+
+          <!-- ************************* -->
+	  
+	  <section>
+	    <h3>Under-dispersion</h3>
+
+	    <div class = 'greybox'>
+	      <p>
+		An under-dispersed distribution has a deficit of extreme values (i.e. it has thin tails). 
+	      </p>
+	      <p style='font-size:70%;color:#555'>
+		<em>Below is a <a href='https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)' target='_blank'>Uniform distribution</a> with mean=12 and standard deviation=5. The equivalent Normal distribution (no under-dispersion) is shown in grey.</em>
+	      </p>
+	      <div style="text-align:center"> 
+		<img src='images/underdisp.png' style='width:600px'  alt="An example of an under-dispersed distribution">
+	      </div>
+	      <p >
+		Under-dispersed is also known as <em>leptokurtic</em> (<em>lepto</em>- means slender)
+	      </p>	      
+	    </div>
+	  </section>
+	</section>
+	
+
+
+	
+	<!-- ########################################## -->
+
+
+
+	
+	<section>
+	  <h2 id='title'>Have a go ...</h2>
+
+	  <div class = 'greybox'>
+	    <p>The section at the start called 'What is a distribution?' gives four examples of distributions (dice, cats, heights and temperatures).</p>
+	    <p>For each of these four examples:
+	      <ol>
+		<li>Specify whether the example is of an empirical or a theoretical distribution</li>
+		<li>Describe the shape of the distribution using the terms discussed in this lesson (symmetric, right-skewed, ...)</li>
+	      </ol>
+	    </p>
+	  </div>
+	</section>
+
+
+
+
+	
+	
+	<!-- ########################################## -->
+
+
+
+
+	
+	<section>
+	  <h2 id='title'>Key Points</h2>
+	  <div class='greybox'>
+	    <ul>
+	      <li>The distribution of a variable describes the relative frequency of outcomes</li>
+	      <li>Data in a sample has an empirical distribution</li>
+	      <li>No two samples have the same empirical distribution</li>
+	      <li>A theoretical distribution has a precise mathematical description</li>
+	      <li>A theoretical distribution has parameters that modify the shape of the distribution</li>
+	      <li>Theoretical distributions can be used to 'mimic' empirical distributions</li>
+	      <li>Empirical and theoretical distributions can be described by their shape</li>
+	    </ul>
+	  </div>
+
+	</section>
+
+      </div>
+    </div>
+    
+    <!-- ########################################## -->
+
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+	  hash: true,
+
+	  // Display presentation control arrows
+	  controls: true,
+	  
+	  // Transition style
+	  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	  // Learn about plugins: https://revealjs.com/plugins/
+	  plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+
+  </body>
+</html>

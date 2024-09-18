@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Regression: validation and common pitfalls</title>
+
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+
+  </head>
+  <body>
+	 
+	 <div class="reveal">
+	   <div class="slides">
+	     <section>
+	       <div>
+		 <IMG class="floatleft" src="images/UCD_online.gif" style="width:100px">
+	       </div>
+
+	       <h2 class="title">Regression: validation and common pitfalls</h2>
+	       <h4 class="author">Online lesson from biological data analysis modules</h4>
+	       <IMG src="./images/frontpage_image.jpg">
+	     </section>
+
+	     <!-- ########################################## -->
+	     
+	     <section>
+	       <h2 id='title'>What will you learn?</h2>
+
+	       <div class='greybox'>
+		 <p>
+		   In this lesson you will learn to:
+		 </p>
+		 <ol>
+		   <li>Interpret the common validation plots for regression</li>
+		   <li>Be aware of common pitfalls when fitting regression models</li>
+		 </ol>
+	       </div>
+	     </section>
+
+
+	     
+	     <!-- ########################################## -->
+	     <section>
+	       <section>
+		 <h2 id='title'>Overview of Regression using a Linear Model</h2>
+
+		 <div class='greybox'> 
+		   <ul>
+		     <li>Regression uses <strong>quantitative continuous explanatory variables.</strong></li>
+		     <li>Regression estimates the <strong>parameters</strong> of a relationship between two (or more) continuous variables.</li> 
+		     <li>Regression can use:
+		       <ol>
+			 <li>several continuous explanatory variables (classically this would be called multiple regression)</li>
+			 <li>a mix of continuous and qualitative explanatory variable (classically this would be called ANCOVA)</li>
+		     </ol></li>
+		   </ul>
+		 </div>	    
+	       </section>
+
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Overview: Linear Model Assumptions for Regression</h3>
+
+		 <div class='greybox'>
+		   <p>
+		     The assumptions of a general linear model are:
+		     <ul>
+		       <li>Residuals are independent</li>
+		       <li>Residual variance is the same for all fitted values</li>
+		       <li>Residuals follow a normal distribution</li>
+		     </ul>
+		   </p>
+		   <p>
+		     When a quantitative variable is used as an explanatory variable there is an additional assumption:
+		     <ul>
+		       <li>All explanatory variables are measured with no uncertainty</li>
+		     </ul> 
+		   </p>
+		 </div>	    
+	       </section>
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Overview: Example of fitting a straight line (linear regression)</h3>
+
+		 <IMG class='floatright' src='images/linear_relationship.png' alt="An example of a linear relationship between variables x and y.">
+		 <div class='greybox2'>
+		   <p>
+		     Here are two continuous variables (x and y). These data appear to form a straight line relationship.
+		   </p>
+		   <p>
+		     We can use R to fit a linear model to infer the linear relationship.</p>
+		   <p>
+		     The code is:
+		     <pre><code class="R" data-trim data-noescape>
+			 # Fit a straight line with a linear model
+			 m = lm(y ~ 1 + x, data=d)
+		     </code></pre>
+		     where the two variables, x and y, are stored in a data frame called d
+		   </p>
+		 </div>	    
+	       </section>
+	       
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Overview: Example of fitting a straight line (linear regression)</h3>
+
+		 <IMG class='floatright' src='images/linear_relationship_fit.png' alt="An example of fitting a straight line through a linear relationship between variables x and y.">
+		 <div class='greybox2'>
+		   <p>
+		     Here is the fitted linear relationship.
+		   </p>
+		   <p>
+		     There are two <strong>parameters</strong> when fitting a straight line: the intercept ($\text{a}$) and the slope ($\text{b}$)</p>
+		   $$y = \text{a} + \text{b} \, x$$
+		   <p>
+		     The fitted values for these parameters (with standard errors) are
+		     $$\text{a}=3.9 \pm 1.2$$
+		     $$\text{b}=5.9 \pm 0.2$$
+		   </p>
+
+		 </div>	    
+	       </section>
+
+               <!-- ************************* -->
+	       
+
+	       <section>
+		 <h3>Overview of Regression using a Linear Model</h3>
+
+		 <div class='greybox'> 
+		   <ul>
+		     <li>A linear model can be used to analyse non-linear relationships 
+		       (e.g  a quadratic relationship 
+		       $y=\text{a}\,+\,{b}\,x\,+\,\text{c}\,x^2$)</li> 
+		     <li>A linear model is <strong>linear in its parameters</strong> 
+		       (e.g. the $\text{a}$, $\text{b}$ and $\text{c}$ in the above equation)</li>
+		     <li>A linear model with a single continuous explanatory variable is equivalent to a classical linear regression</li>
+		   </ul>
+		 </div>	    
+	       </section>
+
+               <!-- ************************* -->
+	       
+	       
+	       <section>
+		 <h3>Overview:  <br>Example of fitting a curve</h3>
+
+		 <IMG class='floatright' src='images/curved_relationship.png' alt="An example of a curved (non-linear) relationship between variables x and y.">
+		 <div class='greybox2'>
+		   <p>
+		     We can use R to fit a linear model to infer a quadratic relationship between two continuous variables (x and y). </p>
+		   <p>The code is:
+		     <pre><code class='R' data-trim data-noescape>
+			 # Fit a curve with a linear model
+			 m2 = lm(y ~ 1 + x + I(x^2), data=d2)
+		     </code></pre>
+		     where the two variables, x and y, are stored in a data frame called d2
+		   </p>
+
+		 </div>	    
+	       </section>
+	       
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Overview: <br>Example of fitting a curve</h3>
+
+		 <IMG class='floatright' src='images/curved_relationship_fit.png' alt="An example of fitting a curve through data showing a curved relationship between variables x and y.">
+		 <div class='greybox2'>
+		   <p>
+		     Here is the fitted quadratic relationship (blue line).
+		   </p>
+		   <p>
+		     There are three <strong>parameters</strong> when fitting a quadratic relationship
+	      	     $$y = \text{a} + \text{b} \, x + \text{c} \, x^2$$
+	      	     here they are called $\text{a}$, $\text{b}$ and  $\text{c}$. 
+		   </p>
+		   <p>		
+		     The fitted values for these parameters (with standard errors) are
+		     $$\begin{align*}
+		     \text{a} &= -6.5 \pm 1.5\\
+		     \text{b} &=  8.5 \pm 0.6\\
+		     \text{c} &= -1.17 \pm 0.06
+		     \end{align*}
+		     $$
+		   </p>
+		 </div>	    
+	       </section>
+	       
+	       
+	     </section>
+	     
+	     <!-- ########################################## -->
+	     
+	     <section>
+	       <section>
+		 <h2 id='title'>Common pitfalls: Fitting inappropriate relationships</h2>
+
+		 <div style="text-align:center"> 
+
+		   <iframe title='Embedded Media titled: Validation_inappropriate_fit' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658191&node=3141529&a=45515093&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+
+		   <!--	 
+			 <video width="800" controls>
+			   <source src="video/Validation_inappropriate_fit.webm" type="video/webm">
+			   <source src="video/Validation_inappropriate_fit.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			 -->
+			 
+		   <p>
+		     (Video 2 mins 22 sec)
+		   </p>
+		 </div>	    
+	       </section>
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Common pitfalls: Fitting inappropriate relationships</h3>
+
+		 <div class='greybox'>
+		   <p>
+		     The R code for fitting a linear model with a straight line relationship and creating model validation plots is
+		     <pre><code class='R' data-trim data-noescape>
+			 # Fit a straight line with a linear model
+			 m = lm(y ~ 1 + x, data=d)
+
+			 # Plot four validation plots in a 2x2 grid
+			 par(mfrow=c(2,2))     # Split graphics into a 2x2 grid
+			 plot(m, which=c(1:4)) # Display the plots
+			 par(mfrow=c(1,1))     # Return graphics to a single window
+		     </code></pre>
+		     The <code>par(mfrow=c(2,2))</code> puts the four plots side by side, as shown at the end of the video.
+		   </p>
+		 </div>
+	       </section>
+
+	     </section>
+
+	     <!-- ########################################## -->
+	     
+	     <section>
+	       <section>
+		 <h2 id='title'>Common pitfalls: <br>Influential data points</h2>
+
+		 <div style="text-align:center"> 
+
+		   <iframe title='Embedded Media titled: Validation_outliers' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658193&node=3141531&a=16962099&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+		   
+		   <!--	
+			 <video width="800" controls>
+			   <source src="video/Validation_outliers.webm" type="video/webm">
+			   <source src="video/Validation_outliers.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			--> 
+		   <p>
+		     (Video 2 mins 50 sec)
+		   </p>
+		 </div>	    
+	       </section>
+
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Common pitfalls: <br>Influential data points</h3>
+
+		 <div class='greybox'>
+		   <p>
+		     The R code for fitting a linear model with a straight line relationship and plotting Cook's distance is
+		     <pre><code class='R' data-trim data-noescape>
+			 # Fit a straight line with a linear model
+			 m = lm(y ~ 1 + x, data=d)
+
+			 # Plot Cook's distance to test for influential data points
+			 plot(m, which=4) # Display plot of Cook's distance
+			 plot(m, which=5) # Display another plot of Cook's distance
+		     </code></pre>
+		   </p>
+		 </div>
+	       </section>
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Common pitfalls: <br>Influential data points</h3>
+
+	    	 <IMG class='floatright' src='images/outlier_noeffect1.png' alt="There is one outlier in the data but removing this outlier has no effect upon the fitted straight line.">
+		 <div class='greybox2'>
+		   <p>
+		     Outliers need not have a strong influence on the fitted model.</p>
+		   <p>
+		     Here we have a model with an outlier at x=1, y=5.
+		   </p>
+		 </div>
+	       </section>
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Common pitfalls: <br>Influential data points</h3>
+
+		 <IMG class='floatright' src='images/outlier_noeffect2.png' alt="The effect of removing the outlier from the previous slide. The fitted straight line is almost unchanged.">
+		 <div class='greybox2'>
+		   <p>
+		     Removing this data point and refitting the model has very little effect on the fitted relationship.
+		   </p>
+		   <p>
+		     We could leave this outlier in the model because it has no trong influence on the final result.
+		   </p>
+		 </div>
+	       </section>
+
+
+               <!-- ************************* -->
+	       
+	       <section>
+		 <h3>Common pitfalls: <br>Influential data points</h3>
+
+		 <div class='greybox'>
+		   Validation plots of Cook's distance also show no data point with a large influence on the fitted model (largest Cook's distance is 0.25).     
+		 </div>
+		 <IMG src='images/outlier_noeffect3.png' alt="Examples of plots in R that can detect outliers that have an influence upon the fitted model.">
+	       </section>
+
+
+	     </section>
+
+	     <!-- ########################################## -->
+	     
+	     <section>
+	       <section>
+		 <h2 id='title'>Common pitfalls: <br>Extrapolation</h2>
+
+		 <div style="text-align:center"> 
+
+		   <iframe title='Embedded Media titled: Validation_extrapolation' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658190&node=3141528&a=206655320&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+		   
+		   <!--	
+			 <video width="800" controls>
+			   <source src="video/Validation_extrapolation.webm" type="video/webm">
+			   <source src="video/Validation_extrapolation.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			--> 
+			 
+		   <p>
+		     (Video 2 mins 11 sec)
+		   </p>
+		 </div>	    
+	       </section>
+
+
+	     </section>
+
+
+	     <!-- ########################################## -->
+	     
+	     <section>
+	       <section>
+		 <h2 id='title'>Common pitfalls: <br>Missing explantory variables</h2>
+
+		 <div style="text-align:center"> 
+
+		   <iframe title='Embedded Media titled: Validation_missing_variable' width="560"  height="315"  src="https://ucd.yuja.com/V/Video?v=658192&node=3141530&a=70562744&preload=false" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen loading="lazy"></iframe>
+		   
+		   <!--	
+			 <video width="800" controls>
+			   <source src="video/Validation_missing_variable.webm" type="video/webm">
+			   <source src="video/Validation_missing_variable.m4v" type="video/mp4">
+			   Your browser does not support HTML5 video.
+			 </video>
+			 -->
+			 
+		   <p>
+		     (Video 2 mins 58 sec)
+		   </p>
+		 </div>	    
+	       </section>
+	     </section>
+
+
+	     <!-- ########################################## -->
+	     
+	     <section>
+	       <h2 id='title'>Key Points</h2>
+	       <div class='greybox'>
+		 <ul>
+		   <li>Avoid fitting inappropriate relationships by thoroughly visualising the data before model fitting</li>
+		   <li>A robust model should not be strongly influenced by any one data point</li>
+		   <li>Do not automatically remove outliers from your dataset</li>
+		   <li>Avoid making predictions outside the range of your data (avoid extrapolation)</li>
+		   <li>Include all appropriate explanatory variables in a model</li>
+		 </ul>
+	       </div>
+
+	     </section>
+	     
+	     <!-- ########################################## -->
+
+
+	     <script src="dist/reveal.js"></script>
+	     <script src="plugin/notes/notes.js"></script>
+	     <script src="plugin/markdown/markdown.js"></script>
+	     <script src="plugin/highlight/highlight.js"></script>
+	     <script src="plugin/math/math.js"></script>	
+
+	     <script>
+	       // More info about initialization & config:
+	       // - https://revealjs.com/initialization/
+	       // - https://revealjs.com/config/
+	       Reveal.initialize({
+		   hash: true,
+
+		   // Display presentation control arrows
+		   controls: true,
+		   
+		   // Transition style
+		   transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		   // Learn about plugins: https://revealjs.com/plugins/
+		   plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+	       });
+	     </script>
+
+
+  </body>
+</html>

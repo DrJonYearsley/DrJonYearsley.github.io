@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Contingency Tables and Chi-squared Tests</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/ucd_simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/a11y-dark.css">
+  </head>
+
+  
+  <body>
+    <div class="reveal">      
+      <div class="slides">
+
+
+	
+	<section>
+	  <div>
+	    <IMG class="floatleft" src="images/UCD_online.gif" alt="UCD logo" style="width:100px">
+	  </div>
+
+	  <h2>Contingency Tables and <br> Chi-squared Tests</h2>
+	  <h4>Online lesson from biological data analysis modules</h4>
+	  <IMG src="./images/frontpage_image.jpg">
+	</section>
+
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2  id='title'>What will you learn?</h2>
+
+	  <div  class='greybox'>
+	    <p>
+	      In this lesson you will learn to:
+	      </p>
+	    <ol>
+	      <li>Identify types of contingency table</li>
+	      <li>Explain a Chi-squared goodness of fit test</li>
+	      <li>Explain a Chi-squared test of association</li>
+	      <li>Identify the statistical model behind Chi-squared tests</li>
+	    </ol>
+	  </div>
+	</section>
+
+	<!-- ########################################## -->	
+
+	<section>
+	  
+
+	  <section>
+	    <h2  id='title'>Contingency Tables</h2>
+	    <div class = 'greybox'>
+	      <p>
+		A contingency table displays the number of times a set of qualitative outcomes have been observed
+		<ul>
+		  <li>A 1-dimensional contingency table displays the data for one qualitataive variable. </li>
+		  <li>A 2-dimensional contingency table displays the data for two qualitataive variables.</li>
+		</ul>
+	      </p>
+	      <p>
+		Below are some examples...
+	      </p>
+	    </div>
+	  </section>
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->	
+
+	  
+	  <section data-background-image='images/cat.jpg' data-background-opacity=0.5>
+	    <h3>Contingency Table: Example 1</h3>
+	    <div class = 'greybox'>	 
+	      <P>
+		We saw an example of a contingency table earlier in the module.
+	      </p>
+	      <p>
+		I had recorded the coat colours of cats in my garden for 1 week. The number of times I
+		observed each coat colour forms a <strong>1-dimensional contingency table</strong>.
+	      </p>
+	      <p>
+		Here it is ...
+	      </p>
+
+	      <p>
+		<table>
+		  <tr>
+		    <th>Black</th>
+		    <th>Ginger</th>
+		    <th>Tabby</th>
+		    <th>Tortoiseshell</th>
+		  </tr>
+		  <tr>
+		    <td style="text-align: center">5</td>
+		    <td style="text-align: center">3</td>
+		    <td style="text-align: center">8</td>
+		    <td style="text-align: center">1</td>
+		  </tr>
+		</table>
+	      </p>
+
+
+	      <p>
+		It is one dimensional because it visualises one (qualitative) variable (coat colour).
+	      </p>
+	    </div>
+	  </section>
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->	
+
+
+	  <section data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    <h3>Contingency Table: Example 2</h3>
+	    <div class = 'greybox'>	 
+	      <p>
+		Here's another 1D contingency table.
+	      </p>
+	      <p>
+		It shows the outcomes from rolling a dice 21 times.
+	      </p>
+
+	      <div style="text-align: center;">
+		<table style="width:80%">
+		  <tr>
+		    <th><img src="images/dice_face_1.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_2.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_3.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_4.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_5.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_6.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		  </tr>
+		  <tr>
+		    <td style="text-align: center">6</td>
+		    <td style="text-align: center">2</td>
+		    <td style="text-align: center">5</td>
+		    <td style="text-align: center">2</td>
+		    <td style="text-align: center">2</td>
+		    <td style="text-align: center">4</td>
+		  </tr>
+		</table>
+
+	      </div>
+	      <p>
+		It is one dimensional because it visualises one (qualitative) variable (the upper face of a six-sided dice) which has six possible outcomes.
+	      </p>
+	    </div>
+	  </section>
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->	
+
+
+
+	  
+	  <section data-background-image='images/cat.jpg' data-background-opacity=0.5>
+	    <h3>Contingency Table: Example 3</h3>
+	    <div class = 'greybox'>	 
+	      <p>Adding the day of the week when I observed the cats from example 1 would give a
+		<strong>2-dimensional contingency table</strong>
+	      </p>
+	      
+	      <table>
+		<tr>
+		  <td></td>
+		  <th>Black</th>
+		  <th>Ginger</th>
+		  <th>Tabby</th>
+		  <th>Tortoiseshell</th>
+		</tr>
+		<tr><th>Monday</th><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+		<tr><th>Tuesday</th><td>2</td><td>0</td><td>2</td><td>0</td></tr>
+		<tr><th>Wednesday</th><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+		<tr><th>Thursday</th><td>0</td><td>1</td><td>2</td><td>0</td></tr>
+		<tr><th>Friday</th><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+		<tr><th>Saturday</th><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+		<tr><th>Sunday</th><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+
+	      </table>
+	      
+	      
+
+	      <p>
+		This is two-dimensional because it visualises two qualitative variables:
+		<ul>
+		  <li>Coat colour (four outcomes)</li>
+		  <li>Day of the week (seven outcomes)</li>
+		</ul>
+	    </div>
+
+
+	  </section>
+
+
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+	  
+	  <section id="HER2_example" data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+
+	    
+	    <h3>Contingency Table: Example 4</h3>
+	    <div class = 'greybox'>
+	      <p>
+		<a href="https://doi.org/10.1093/jnci/djv077">A study</a> compared tissue samples from HER2 breast cancer tumours and non-HER2 breast cancer tumours. Each sample was stained to look for the CB<sub>2</sub> protein (see image below) and then scored on a scale from 0 (no staining) to 3 (highly stained). 
+	      </p>
+
+	      <p>
+		Here are the data from 452 tissue samples in a <strong>2D contingency table</strong>
+	      </p>
+
+	      <table>
+		<col span="2">
+		<colgroup span="4"></colgroup>
+		<tr>
+		  <td rowspan="2"></td>
+		  <td rowspan="2"></td>
+		  <th colspan="4" scope="colgroup">Staining Score</th>
+		</tr>
+		<tr>
+		  <th scope="col">0</th>
+		  <th scope="col">1</th>
+		  <th scope="col">2</th>
+		  <th scope="col">3</th>
+		</tr>
+		
+		<tr>
+		  <th rowspan="2" style="vertical-align: middle; border-style: none">Tumour</th>
+		  <th scope="row">HER2</th>
+		  <td>3</td>
+		  <td>29</td>
+		  <td>39</td>
+		  <td>21</td>
+		</tr>
+		<tr>
+		  <th scope="row">Non-HER2</th>
+		  <td>86</td>
+		  <td>141</td>
+		  <td>94</td>
+		  <td>39</td>
+		</tr>
+	      </table>
+
+	      <p>
+		<center><img src="images/cell_staining.png"></center>
+	      </p>
+	    </div>
+
+	    
+
+
+	  </section>
+	  
+	</section>
+
+
+	<!-- ########################################## -->
+	
+
+
+
+	<section>
+	  <section>
+	    <h2 id='title'>Overview of Chi-squared Tests</h2>
+	    
+	    <div class='greybox'>
+	      Chi-squared tests compare your observed counts in a contingency table to what you would expect under a null-hypothesis.
+	    </div>
+
+	    <div class='greybox'>
+	      The goal is to test whether the observed counts are inconsistent with the expectation from the null-hypothesis 
+	    </div>
+
+	    <div class='greybox' style="background:#99CCFF">
+	      To do this they use a <strong>Chi-squared statistic</strong> to put a value on how far the observations are from the expectation
+	    </div>
+	    
+	  </section>
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  <section>
+	    <h3>Chi-squared Statistic</h3>
+	    
+	    <div class='greybox'>
+	      
+	      <p>
+		Observed and expected counts are compared using a Chi-squared statistic (written as $\chi^2$) 
+	      </p>
+	      <p>
+		It is calculated as
+		$$\chi^2 = \sum_i \frac{(O_i-E_i)^2}{E_i}$$
+		where $O_i$ is an observed count for outcome $i$, $E_i$ is the corresponding expected count, and the sum (the $\Sigma$ symbol) is over all possible outcomes.
+	      </p>
+	      
+	      
+	    </div>
+
+	  </section>
+
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  <section>
+	    <h3>Chi-squared Statistic Properties</h3>
+	    
+	    <div class='greybox'>
+
+	      <p>
+		<ul>
+		  <li>A $\chi^2$ statistic of zero happens when the observations are equal to the expectation</li>
+		  <li>The larger the value of $\chi^2$ the larger the inconsistency between the observations and the expectation</li>
+		  <li>A $\chi^2$ statistic cannot be negative</li>
+		</ul>
+	      </p>
+	      
+	    </div>
+
+	  </section>
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  <section>
+	    <h3>Two Chi-Squared Tests</h3>
+	    
+	    <div class='greybox' style="background:#99CCFF">
+	      
+	      <p>
+		We will look at two tests that use the Chi-squared statistic:
+		<ul>
+		  <li><strong>Chi-Squared Goodness of Fit Test</strong>: Used on 1D contingency tables</li>
+		  <li><strong>Chi-Squared Test of Association</strong>: Used on 2D contingency tables</li>
+		</ul>
+	      </p>
+	      <p>
+		in the next slides we will see how these two tests work.
+	      </p>
+	      
+	      
+	    </div>
+
+	  </section>
+	  
+	  
+	</section>
+
+	
+	
+	<!-- ########################################## -->
+	
+	<section>
+	  <section>
+	    <h2 id='title'>Analysing 1D Contingency Tables</h2>
+	    
+	    <div class='greybox' style="text-align:center">
+	      <p>
+		A chi-squared test on a 1D contingency table is called a <br> <strong>Chi-squared goodness of fit test</strong>
+	      </p>
+	      <p>
+		This test is also called "Chi-squared test for given probabilities"
+		</p>
+	    </div>
+	    
+	    <div class='greybox' style="background:#99CCFF">
+	      <p>
+		For this test you have some pre-defined <em>expected frequency</em> for each outcome of the qualitative variable.
+	      </p>
+	      
+	    </div>
+
+	    <div class='greybox' style="background:#FFFF99">
+	      <p>
+		The <strong>null-hypothesis</strong> for this test is: <br>
+		"<em>the relative frequencies of the outcomes are the expected relative frequencies</em>"  
+	      </p>
+	      <p>
+		Note: this is a hypothesis about the population, not the data
+	      </p>
+
+	    </div>
+
+	  </section>
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  <section  data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    <h3>An Example (1)</h3>
+
+	    <div class='textbox'>
+	      If we roll a dice 21 times we want to know from the outcomes whether the dice is unbiased.
+	    </div>
+	    
+	    <div class='greybox'>
+	      
+	      <p>
+		<strong>The null-hypothesis:</strong>
+		"A six-sided dice is not biased"
+	      </p>
+	      <p>
+		<strong>The expected outcome:</strong>
+		If a dice is rolled 21 times we expect each side to appear on-top one-sixth of the time (i.e. each outcome is expected to occur 3.5 times).
+	      </p>
+
+	      
+	    </div>
+
+	  </section>
+
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  <section  data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    <h3>An Example (2)</h3>
+	    
+	    <div class='greybox'>
+	      <p>
+		Steps in calculating the Chi-squared statistic ($\chi^2$):
+		
+		<table style="width:90%">
+		  <tr>
+		    <td></td>
+		    <th><img src="images/dice_face_1.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_2.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_3.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_4.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_5.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		    <th><img src="images/dice_face_6.png" style="width:50px;display: block;margin-left: auto;margin-right: auto;"></th>
+		  </tr>
+		  <tr>
+		    <th>Expected, $E_i$:</th>
+		    <td style="text-align: center">3.5</td> 
+		    <td style="text-align: center">3.5</td> 
+		    <td style="text-align: center">3.5</td> 
+		    <td style="text-align: center">3.5</td> 
+		    <td style="text-align: center">3.5</td> 
+		    <td style="text-align: center">3.5</td> 
+		  </tr>
+		  <tr>
+		    <th>Observed, $O_i$:</th>
+		    <td style="text-align: center">6</td>
+		    <td style="text-align: center">2</td>
+		    <td style="text-align: center">5</td>
+		    <td style="text-align: center">2</td>
+		    <td style="text-align: center">2</td>
+		    <td style="text-align: center">4</td>
+		  </tr>
+		  <tr>
+		    <th>Step 1: $(O_i-E_i)^2$</th>
+		    <td style="text-align: center">6.25</td>
+		    <td style="text-align: center">2.25</td>
+		    <td style="text-align: center">2.25</td>
+		    <td style="text-align: center">2.25</td>
+		    <td style="text-align: center">2.25</td>
+		    <td style="text-align: center">0.25</td>
+		  </tr>
+		  <tr>
+		    <th>Step 2: $(O_i-E_i)^2/E_i$</th>
+		    <td style="text-align: center">1.79</td>
+		    <td style="text-align: center">0.64</td>
+		    <td style="text-align: center">0.64</td>
+		    <td style="text-align: center">0.64</td>
+		    <td style="text-align: center">0.64</td>
+		    <td style="text-align: center">0.07</td>
+		  </tr>
+		</table>
+	      </p>
+
+	      <p>
+		<strong>Step 3:</strong> Add up all the values from step 2,<br>
+		Which gives ...
+		
+		$$\chi^2 = 4.429 $$
+	      </p>	      
+	    </div>
+
+	  </section>
+
+
+
+
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  <section  data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    <h3>An Example (3)</h3>
+	    
+	    <div class='greybox'>
+	      
+	      <p>
+		The Chi-squared statistic ($\chi^2 = 4.429 $) has put a number on how far the  observed dice roles are from the expectation for an unbiased dice
+	      </p>
+
+	      <p>
+		Next we need to interpret this number. For this we ask:
+		<div class='textbox'>
+		  What is the probability that 21 roles from an unbiased dice will give a $\chi^2$ greater than or equal to $4.429$?
+		</div>
+
+		This probability is a p-value.<br>
+		<em>Note: You should recognise the null-hypothesis testing methodology that we discussed for general linear models</em>. 
+		
+	      </p>
+	      
+	    </div>
+
+	  </section>
+
+	  
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+	  <section  data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    <h3 >An Example (4)</h3>
+	    
+	    <div class='greybox'>
+
+	      <div class='textbox'>
+		What is the probability that 21 roles from an unbiased dice will give a $\chi^2$ greater than or equal to $4.429$?
+	      </div>
+	      
+	      <p>
+		We can calculate the p-value in R
+	      </p>
+	      <pre><code  class="R" data-trim data-noescape>
+		  # Perform a Chi-squared test
+		  dice_roles = c(6, 2, 5, 2, 2, 4)
+		  chisq.test(dice_roles)
+	      </code></pre>
+
+	      <p>
+		giving the output
+	        <pre><code class="R">
+		    Chi-squared test for given probabilities
+
+		    data:  dice_roles
+		    X-squared = 4.4286, df = 5, p-value = 0.4895
+		</code></pre>
+
+		Comparing the p-value of 0.49 to a critical significance level of 5% means we <strong>fail to reject</strong> the null hypothesis (i.e. p-value>0.05). 
+	      </p>
+	      
+	    </div>
+
+	  </section>
+	  
+
+
+	  
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+	  <section  data-background-image='images/dice2.jpg' data-background-opacity=0.5>
+	    
+	    <h3> An Example (5)</h3>
+	    
+	    <div class='greybox'>
+
+	      
+	      If we were including this result in a report we would write:
+	      
+	      <div class="textbox">
+		$\text{There is no evidence that the dice is biased } (\chi^2=4.43, df=5, p=0.49)$
+	      </div>
+
+
+	      
+	    </div>
+
+	    <div class='greybox' style="background:#FF9999">
+	      Note: The statement is not saying that the dice is unbiased (we have not proven the null-hypothesis). It is saying that the data do not contain sufficient evidence to conclude that the dice is biased.
+	    </div>
+
+	  </section>
+	  
+
+	</section>
+
+
+	
+	
+	<!-- ########################################## -->
+	
+	<section>	
+	  <section>
+	    <h2 id='title'>Analysing 2D Contingency Tables</h2>
+	    
+	    <div class='greybox' style="text-align: center">
+	      <p>
+		A chi-squared test on a 2D contingency table is called a <br> <strong>Chi-squared test of association</strong>
+	      </p>
+	    </div>
+
+	    <div class='greybox' style="text-align: center">
+	      <p style="text-align: left">
+		This test is also called:
+		<ul> 
+		  <li>Pearson's Chi-squared Test</li>
+		  <li>Chi-squared Test of Independence</li>
+		</ul>
+	      </p>
+	    </div>
+
+	    <div class='greybox'  style="background:#FFFF99">
+	      <p>
+		The <strong>null-hypothesis</strong> for this test is: <br>
+		"<em>there is no association between the frequencies of outcomes for the two variables</em>"  
+	      </p>
+	      <p>
+		This is a statement of <strong>no interaction</strong> between the two variables.
+	      </p>
+	    </div>
+
+	  </section>
+
+
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (1)</h3>
+	    <div class = 'greybox'>
+	      <p>
+		In this example we will analyse the HER2 breast cancer data we saw in the <a href="#/HER2_example">4th contingency table example</a>.		
+	      </p>
+	      
+	      <table>
+		<colgroup>
+		  <col span="2">
+		  <col span="4">
+		</colgroup>
+		<tr>
+		  <td rowspan="2"></td>
+		  <td rowspan="2"></td>
+		  <th colspan="4" scope="colgroup">Staining Score</th>
+		</tr>
+		<tr>
+		  <th scope="col">0</th>
+		  <th scope="col">1</th>
+		  <th scope="col">2</th>
+		  <th scope="col">3</th>
+		</tr>
+		
+		<tr>
+		  <th rowspan="2" style="vertical-align: middle; border-style: none">Tumour Type</th>
+		  <th scope="row">HER2</th>
+		  <td>3</td>
+		  <td>29</td>
+		  <td>39</td>
+		  <td>21</td>
+		</tr>
+		<tr>
+		  <th scope="row">Non-HER2</th>
+		  <td>86</td>
+		  <td>141</td>
+		  <td>94</td>
+		  <td>39</td>
+		</tr>
+	      </table>
+
+	      <p>
+		Here is the data. There are two qualitative variables: Tumour type and Staining score.
+	      </p>
+
+	      
+	    </div>
+
+	  </section>
+
+
+
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (2)</h3>
+	    <div class = 'greybox'>
+	      <p>
+		We want to test for a interaction between Tumour Type and Staining Score
+	      </p>
+	      
+	      <p>
+		We can use R to perform the test. First input the data into a 2D array
+	      </p>
+	      
+	      <pre><code  class="R" data-trim data-noescape>
+		  # Input the observed frequencies into an array
+		  cancer = array(c(3, 86, 29, 141, 39, 94, 21, 39), dim=c(2,4))
+
+		  # Give the rows and columns names
+		  rownames(cancer) = c("HER2", "non-HER2")
+		  colnames(cancer) = c("Score 0", "Score 2", "Score 3", "Score 4" )
+	      </code></pre>
+	      
+	      <p>
+		This gives the following 2D array called cancer
+	      </p>
+	      
+	      <pre><code class="R">
+		           Score 0 Score 2 Score 3 Score 4
+		  HER2           3      29      39      21
+		  non-HER2      86     141      94      39
+	      </code></pre>
+	     
+	      
+	    </div>
+
+	  </section>
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (3)</h3>
+	    <div class = 'greybox'>
+
+	      <p>
+		Then perform the test.
+		</p>
+	      
+	      <pre><code  class="R" data-trim data-noescape>
+		  # Perform a chi-square test of association
+		  chisq.test(cancer)
+	      </code></pre>
+
+	      <p>
+		<em>Note: R does not need to be told that the data form a 2D contingency table.</em>
+		</p>
+	      
+	      <p>
+		This gives the output
+	      </p>
+	      
+	      <pre><code  class="R" data-trim data-noescape>
+		  Pearson`s Chi-squared test
+
+		  data:  cancer
+		  X-squared = 31.513, df = 3, p-value = 6.628e-07
+	      </code></pre>
+	      
+	      <p>
+		Comparing the p-value of $6.6\times 10^{-7}$ to a critical significance level of 5% means we reject the null hypothesis (i.e. p-value>0.05).
+		</p>
+	      
+	    </div>
+
+	  </section>
+	  
+
+	  
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (4)</h3>
+	    <div class = 'greybox'>
+	      
+	      <p>
+		The chi-squared statistic ($\chi^2=31.5$). Where does this come from?
+	      </p>
+	      <p>
+		We need the total number of observations for each outcome (i.e. for variable <strong>Tumour Type</strong> this will be the sum of each row). 
+	      </p>
+	      
+	      <table>
+		<colgroup>
+		  <col span="2">
+		  <col span="4">
+		  <col style="background-color:#ffccff">
+		</colgroup>
+		<tr>
+		  <td rowspan="2"></td>
+		  <td rowspan="2"></td>
+		  <th colspan="4" scope="colgroup">Staining Score</th>
+		  <td></td>
+		</tr>
+		<tr>
+		  <th scope="col">0</th>
+		  <th scope="col">1</th>
+		  <th scope="col">2</th>
+		  <th scope="col">3</th>
+		  <th> Totals</th>
+		</tr>
+		
+		<tr>
+		  <th rowspan="2" style="vertical-align: middle">Tumour<br>Type</th>
+		  <th scope="row">HER2</th>
+		  <td>3</td>
+		  <td>29</td>
+		  <td>39</td>
+		  <td>21</td>
+		  <td>92</td>
+		</tr>
+		<tr>
+		  <th scope="row">Non-HER2</th>
+		  <td>86</td>
+		  <td>141</td>
+		  <td>94</td>
+		  <td>39</td>
+		  <td>360</td>
+		</tr>
+
+
+
+		<tr style="background-color:#ffccff">
+		  <td></td>
+		  <th >Totals</th>
+		  <td>89</td>
+		  <td>170</td>
+		  <td>133</td>
+		  <td>60</td>
+		  <td><strong>452</strong></td>
+		</tr>
+	      </table>
+
+	      <p>
+		These totals are shown above highlighted in pink.
+	      </p>
+	      <p>
+		From these totals we can calculate the expected frequency of observations under the null-hypothesis
+		</p>
+	    </div>
+	  </section>
+
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (5)</h3>
+	    <div class = 'greybox'>
+	      
+	      <p>
+		Below is an example of calculating the expected frequency of observations if the null-hypothesis were true for a HER2 tumour type with a staining score of 0.
+	      </p>
+
+
+	      
+	      <table>
+		<colgroup>
+		  <col span="2">
+		  <col span="4">
+		  <col style="background-color:#ffccff">
+		</colgroup>
+		<tr>
+		  <td rowspan="2"></td>
+		  <td rowspan="2"></td>
+		  <th colspan="4" scope="colgroup">Staining Score</th>
+		  <td></td>
+		</tr>
+		<tr>
+		  <th scope="col">0</th>
+		  <th scope="col">1</th>
+		  <th scope="col">2</th>
+		  <th scope="col">3</th>
+		  <th> Totals</th>
+		</tr>
+		
+		<tr>
+		  <th rowspan="2" style="vertical-align: middle">Tumour<br>Type</th>
+		  <th scope="row">HER2</th>
+		  <td style="background-color:#ffffff">$89 \times \frac{92}{452}$</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td style="background-color:#ffffff">92</td>
+		</tr>
+		<tr>
+		  <th scope="row">Non-HER2</th>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td>360</td>
+		</tr>
+
+
+
+		<tr style="background-color:#ffccff">
+		  <td></td>
+		  <th >Totals</th>
+		  <td style="background-color:#ffffff">89</td>
+		  <td>170</td>
+		  <td>133</td>
+		  <td>60</td>
+		  <td style="background-color:#ffffff"><strong>452</strong></td>
+		</tr>
+	      </table>
+
+	      <p>
+		This approach can be applied to each combination of tumour type and staining score.
+	      </p>
+	    </div>
+
+	  </section>
+
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (6)</h3>
+	    <div class = 'greybox'>
+	      
+	      <p>
+	        This gives us the table of expected frequencies if the null-hypothesis were true
+	      </p>
+
+
+	      
+	      <table>
+		<colgroup>
+		  <col span="2">
+		  <col span="4">
+		  <col style="background-color:#ffccff">
+		</colgroup>
+		<tr>
+		  <td rowspan="2"></td>
+		  <td rowspan="2"></td>
+		  <th colspan="4" scope="colgroup">Staining Score</th>
+		  <td></td>
+		</tr>
+		<tr>
+		  <th scope="col">0</th>
+		  <th scope="col">1</th>
+		  <th scope="col">2</th>
+		  <th scope="col">3</th>
+		  <th> Totals</th>
+		</tr>
+		
+		<tr>
+		  <th rowspan="2" style="vertical-align: middle">Tumour<br>Type</th>
+		  <th scope="row">HER2</th>
+		  <td>18.1</td>
+		  <td>34.6</td>
+		  <td>27.1</td>
+		  <td>12.2</td>
+		  <td>92</td>
+		</tr>
+		<tr>
+		  <th scope="row">Non-HER2</th>
+		  <td>70.9</td>
+		  <td>135.4</td>
+		  <td>105.9</td>
+		  <td>47.8</td>
+		  <td>360</td>
+		</tr>
+
+
+
+		<tr style="background-color:#ffccff">
+		  <td></td>
+		  <th >Totals</th>
+		  <td >89</td>
+		  <td>170</td>
+		  <td>133</td>
+		  <td>60</td>
+		  <td ><strong>452</strong></td>
+		</tr>
+	      </table>	  
+
+
+	      
+	      <p>
+		The table above shows expected frequencies to 1 decimal place.
+	      </p>
+	      <p>
+		See if you can correctly calculate some of the other expected frequencies.
+	      </p>
+
+	      
+	  </section>
+
+
+
+
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (7)</h3>
+	    <div class = 'greybox'>
+	      
+	      <p>
+	       Now we have expected and observed frequencies we can calculate the chi-squared statistic.
+	      </p>
+
+	      <p>
+		The chi-squared statistic is $\chi^2=31.5$
+	      </p>
+
+
+	      
+	      <table>
+		<colgroup>
+		  <col span="2">
+		  <col span="4">
+		</colgroup>
+		<tr>
+		  <td rowspan="2"></td>
+		  <td rowspan="2"></td>
+		  <th colspan="4" scope="colgroup">Staining Score</th>
+		</tr>
+		<tr>
+		  <th scope="col">0</th>
+		  <th scope="col">1</th>
+		  <th scope="col">2</th>
+		  <th scope="col">3</th>
+		</tr>
+		
+		<tr>
+		  <th rowspan="2" style="vertical-align: middle; border-style: none">Tumour<br>Type</th>
+		  <th scope="row">HER2</th>
+		  <td>12.6</td>
+		  <td>0.9</td>
+		  <td>5.3</td>
+		  <td>6.3</td>
+		</tr>
+		<tr>
+		  <th scope="row">Non-HER2</th>
+		  <td>3.2</td>
+		  <td>0.2</td>
+		  <td>1.3</td>
+		  <td>1.6</td>
+		</tr>
+	      </table>	  
+
+	     
+	      <p>
+		The table above shows the contribution of each combination of outcomes to the overall chi-squared statistic.
+	      </p>
+	      <p>
+		They are calculated using $(\text{Observed-Expected)}^2 / \text{Expected}$.
+	      </p>
+ 
+	  </section>
+
+
+
+	  
+
+
+	  <!-- ++++++++++++++++++++++++++++++++++++++ -->
+
+
+	  
+
+	  <section data-background-image='images/pink_ribbons.png' data-background-opacity=0.5>
+	    <h3>A worked example (8)</h3>
+
+
+	    <div class='greybox'>
+
+	      <p>
+		The R output tells us that the p-value for this $\chi^2$ statistic of 31.5 is less than 5%. So we reject the null-hypothesis
+	      </p>
+	      
+	      <p>
+	      If we were including this result in a report we would write:
+	      </p>
+	      
+	      <div class="textbox">
+		$\text{There is an association between HER2 breast cancer tumours}$ <br>
+		$\text{and the level of staining for CB}_2  \text{ } (\chi^2=31.5, df=3, p=6.6 \times 10^{-7})$.
+	      </div>
+
+
+	      
+	    </div>
+
+
+	    
+	  </section>
+
+
+
+
+
+
+	  
+	</section>
+	
+	
+	<!-- ########################################## -->
+	
+	<section>
+	  <h2 id='title'>Key Points</h2>
+	  <div class='greybox'>
+	    <ul>
+	      <li>One qualitataive variable can be visualised using a 1D contingency table</li>
+	      <li>Two qualitataive variable can be visualised using a 2D contingency table</li>
+	      <li>Chi-squared test can be used to analyse 1D and 2D contingency tables</li>
+	      <li>Chi-squared tests can be calculated by hand or using software, such as R.</li>
+	    </ul>
+	  </div>
+
+	</section>
+	</div>
+      </div>
+
+      
+      <!-- ########################################## -->
+
+
+
+
+      <script src="dist/reveal.js"></script>
+      <script src="plugin/notes/notes.js"></script>
+      <script src="plugin/markdown/markdown.js"></script>
+      <script src="plugin/highlight/highlight.js"></script>
+      <script src="plugin/math/math.js"></script>	
+
+      <script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+	    hash: true,
+	    center: true,
+
+	    // Display presentation control arrows
+	    controls: true,
+	    
+	    // Transition style
+	    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+	    // Learn about plugins: https://revealjs.com/plugins/
+	    plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+      </script>
+
+
+      
+  </body>
+</html>
