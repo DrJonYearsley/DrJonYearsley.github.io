@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -3080,11 +3080,31 @@ vertical-align: -.125em;
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
-<main class="content" id="quarto-document-content">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#creating-an-array-of-numbers" id="toc-creating-an-array-of-numbers" class="nav-link" data-scroll-target="#creating-an-array-of-numbers">Creating an array of numbers</a></li>
+  <li><a href="#using-to-extract-data-from-an-array" id="toc-using-to-extract-data-from-an-array" class="nav-link" data-scroll-target="#using-to-extract-data-from-an-array">Using <code>[ ]</code> to extract data from an array</a></li>
+  <li><a href="#creating-a-data-frame" id="toc-creating-a-data-frame" class="nav-link" data-scroll-target="#creating-a-data-frame">Creating a data frame</a></li>
+  <li><a href="#specifying-a-column" id="toc-specifying-a-column" class="nav-link" data-scroll-target="#specifying-a-column">Specifying a column</a></li>
+  <li><a href="#specifying-a-row" id="toc-specifying-a-row" class="nav-link" data-scroll-target="#specifying-a-row">Specifying a row</a></li>
+  <li><a href="#logical-indexing" id="toc-logical-indexing" class="nav-link" data-scroll-target="#logical-indexing">Logical indexing</a></li>
+  <li><a href="#reassigning-values-in-a-data-frame-using" id="toc-reassigning-values-in-a-data-frame-using" class="nav-link" data-scroll-target="#reassigning-values-in-a-data-frame-using">Reassigning values in a data frame using [ ]</a></li>
+  <li><a href="#reorganising-a-data-frame" id="toc-reorganising-a-data-frame" class="nav-link" data-scroll-target="#reorganising-a-data-frame">Reorganising a data frame</a></li>
+  <li><a href="#merging-two-data-frames" id="toc-merging-two-data-frames" class="nav-link" data-scroll-target="#merging-two-data-frames">Merging two data frames</a></li>
+  <li><a href="#aggregating-a-data-frame" id="toc-aggregating-a-data-frame" class="nav-link" data-scroll-target="#aggregating-a-data-frame">Aggregating a data frame</a></li>
+  <li><a href="#summary-of-topics" id="toc-summary-of-topics" class="nav-link" data-scroll-target="#summary-of-topics">Summary of topics</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -3261,10 +3281,10 @@ How to Read this Tutorial
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>a2 <span class="ot">&lt;-</span> <span class="fu">array</span>( <span class="fu">rnorm</span>(<span class="dv">15</span>), <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>a2          <span class="co"># Display the array a2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]       [,3]       [,4]         [,5]
-[1,]  0.7311821 0.08977046 -1.0622814 -0.6041210 -0.398078900
-[2,] -1.5292038 0.40166460 -0.8622836 -0.6211877 -1.414864944
-[3,] -0.4364752 1.09668331  0.6448382 -2.2792605  0.006216881</code></pre>
+<pre><code>           [,1]       [,2]       [,3]       [,4]       [,5]
+[1,] -0.7678796 -0.6508443 -1.1458395  0.7617368 -0.6019772
+[2,]  0.5128885  0.1624812  1.2388638 -1.1910369  0.6102526
+[3,] -0.2717127  0.1510020  0.4151739  0.4074903 -0.1459151</code></pre>
 </div>
 </div>
 <p>The row and column indices of an element can be specified inside square brackets, separated by a comma</p>
@@ -3272,7 +3292,7 @@ How to Read this Tutorial
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the element in the 2nd row, 4th column of a2</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>a2[ <span class="dv">2</span>, <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.6211877</code></pre>
+<pre><code>[1] -1.191037</code></pre>
 </div>
 </div>
 <p>We could reassign specific elements of a 2D array</p>
@@ -3281,10 +3301,10 @@ How to Read this Tutorial
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>a2[ <span class="dv">2</span>, <span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>a2          <span class="co"># Display the array a2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]       [,3]      [,4]         [,5]
-[1,]  0.7311821 0.08977046 -1.0622814 -0.604121 -0.398078900
-[2,] -1.5292038 0.40166460 -0.8622836  0.000000 -1.414864944
-[3,] -0.4364752 1.09668331  0.6448382 -2.279260  0.006216881</code></pre>
+<pre><code>           [,1]       [,2]       [,3]      [,4]       [,5]
+[1,] -0.7678796 -0.6508443 -1.1458395 0.7617368 -0.6019772
+[2,]  0.5128885  0.1624812  1.2388638 0.0000000  0.6102526
+[3,] -0.2717127  0.1510020  0.4151739 0.4074903 -0.1459151</code></pre>
 </div>
 </div>
 </section>
@@ -3297,7 +3317,7 @@ How to Read this Tutorial
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display all the elements in the 2nd row of a2</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>a2[ <span class="dv">2</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.5292038  0.4016646 -0.8622836  0.0000000 -1.4148649</code></pre>
+<pre><code>[1] 0.5128885 0.1624812 1.2388638 0.0000000 0.6102526</code></pre>
 </div>
 </div>
 <p>and similarly for an entire column</p>
@@ -3305,7 +3325,7 @@ How to Read this Tutorial
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display all the elements in the 4th column of a2</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>a2[ , <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.604121  0.000000 -2.279260</code></pre>
+<pre><code>[1] 0.7617368 0.0000000 0.4074903</code></pre>
 </div>
 </div>
 </section>
@@ -3352,11 +3372,11 @@ How to Read this Tutorial
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d2)       <span class="co"># Display the structure of the new data frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&#39;data.frame&#39;:   3 obs. of  5 variables:
- $ V1: num  0.731 -1.529 -0.436
- $ V2: num  0.0898 0.4017 1.0967
- $ V3: num  -1.062 -0.862 0.645
- $ V4: num  -0.604 0 -2.279
- $ V5: num  -0.39808 -1.41486 0.00622</code></pre>
+ $ V1: num  -0.768 0.513 -0.272
+ $ V2: num  -0.651 0.162 0.151
+ $ V3: num  -1.146 1.239 0.415
+ $ V4: num  0.762 0 0.407
+ $ V5: num  -0.602 0.61 -0.146</code></pre>
 </div>
 </div>
 </section>
@@ -3503,10 +3523,10 @@ Levels: Breakfast Dinner Lunch</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>a2       <span class="co"># Display the 2D array a2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]       [,3]      [,4]         [,5]
-[1,]  0.7311821 0.08977046 -1.0622814 -0.604121 -0.398078900
-[2,] -1.5292038 0.40166460 -0.8622836  0.000000 -1.414864944
-[3,] -0.4364752 1.09668331  0.6448382 -2.279260  0.006216881</code></pre>
+<pre><code>           [,1]       [,2]       [,3]      [,4]       [,5]
+[1,] -0.7678796 -0.6508443 -1.1458395 0.7617368 -0.6019772
+[2,]  0.5128885  0.1624812  1.2388638 0.0000000  0.6102526
+[3,] -0.2717127  0.1510020  0.4151739 0.4074903 -0.1459151</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -3517,8 +3537,7 @@ Levels: Breakfast Dinner Lunch</code></pre>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract elements of a2 that are negative</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>a2[logInd]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.5292038 -0.4364752 -1.0622814 -0.8622836 -0.6041210 -2.2792605 -0.3980789
-[8] -1.4148649</code></pre>
+<pre><code>[1] -0.7678796 -0.2717127 -0.6508443 -1.1458395 -0.6019772 -0.1459151</code></pre>
 </div>
 </div>
 </section>
@@ -3705,18 +3724,120 @@ Levels: Breakfast Dinner Lunch</code></pre>
 <p>See also <a href="http://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/" class="uri">http://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/</a> and <a href="http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/" class="uri">http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/</a></p>
 </section>
 </section>
-<section id="summarising-a-variable-by-group" class="level1">
-<h1>Summarising a variable by group</h1>
-<p>The <code>summary()</code> function produces a summary of an entire data frame. However, it doesn’t allow you to calculate summaries for groups within the data frame.</p>
-<p>If you want to calculate a mean across different grouping (e.g. for each value of a qualitative factor) the <code>aggregate()</code> function is very useful.</p>
+<section id="merging-two-data-frames" class="level1 page-columns page-full">
+<h1>Merging two data frames</h1>
+<p>The <code>merge()</code> function can be used to combine two data frames.</p>
+<p>Data frames may be merged</p>
+<ul>
+<li>side-by-side (increasing the number of columns in the final data frame)<br>
+</li>
+<li>one below the other (increasing the number of rows in the final data frame)</li>
+</ul>
+<section id="merge-side-by-side" class="level2">
+<h2 class="anchored" data-anchor-id="merge-side-by-side">Merge: side-by-side</h2>
+<p>The ‘by=’ argument is used to merge two data frames side-by-side (i.e. the number of rows does not change). The by argument gives the columns to use to order the rows from the two data frames.</p>
+<p>Here is an example using the rainfall data. Two subsets are created then these subsets are merged.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create two subsets of the rainfall data, </span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># one for the year 2013 and the other for 2016</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>rainfall_2013 <span class="ot">=</span> <span class="fu">subset</span>(rainfall.long, Year<span class="sc">==</span><span class="dv">2013</span>)</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>rainfall_2016 <span class="ot">=</span> <span class="fu">subset</span>(rainfall.long, Year<span class="sc">==</span><span class="dv">2016</span>)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use merge to combine these two data frames using Month align rows</span></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>rainfall.merged1 <span class="ot">=</span> <span class="fu">merge</span>(rainfall_2013, </span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>                         rainfall_2016, </span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="st">&quot;Month&quot;</span>, </span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sort=</span><span class="cn">FALSE</span>)</span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the merged data frame</span></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>rainfall.merged1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Month Year.x Rainfall.x Year.y Rainfall.y
+1    Jan   2013      140.9   2016      166.3
+2    Feb   2013       74.1   2016      130.7
+3    Mar   2013       61.7   2016       72.7
+4    Apr   2013       61.6   2016       52.9
+5    May   2013      102.5   2016       65.6
+6    Jun   2013       85.5   2016       72.4
+7    Jul   2013       56.5   2016      109.9
+8    Aug   2013       92.6   2016       63.4
+9    Sep   2013       69.7   2016         NA
+10   Oct   2013      103.8   2016         NA
+11   Nov   2013      116.0   2016         NA
+12   Dec   2013      178.6   2016         NA</code></pre>
+</div>
+</div>
+<p>Each row contains data for a particular <code>Month</code>. variables from the first (data from 2013) and second (data from 2016) data frame are automatically lebeld with <code>.x</code> and <code>.y</code>, respectively. (The argument <code>sort=FALSE</code> stops the months being sorted alphabetically)</p>
+</section>
+<section id="merge-one-below-the-other" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="merge-one-below-the-other">Merge: one below the other</h2>
+<p>Use the <code>all=TRUE</code> argument to add the two data frames one below the other.</p>
+
+<div class="no-row-height column-margin column-container"><div class>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This works best when the names of the columns in the two data frames are the same</p>
+</div>
+</div>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use merge to combine these two data frames one below the other</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>rainfall.merged2 <span class="ot">=</span> <span class="fu">merge</span>(rainfall_2013, </span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>                         rainfall_2016, </span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">all=</span><span class="cn">TRUE</span>, </span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sort=</span><span class="cn">FALSE</span>)</span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the merged data frame</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>rainfall.merged2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Year Month Rainfall
+1  2013   Jan    140.9
+2  2013   Feb     74.1
+3  2013   Mar     61.7
+4  2013   Apr     61.6
+5  2013   May    102.5
+6  2013   Jun     85.5
+7  2013   Jul     56.5
+8  2013   Aug     92.6
+9  2013   Sep     69.7
+10 2013   Oct    103.8
+11 2013   Nov    116.0
+12 2013   Dec    178.6
+13 2016   Jan    166.3
+14 2016   Feb    130.7
+15 2016   Mar     72.7
+16 2016   Apr     52.9
+17 2016   May     65.6
+18 2016   Jun     72.4
+19 2016   Jul    109.9
+20 2016   Aug     63.4
+21 2016   Sep       NA
+22 2016   Oct       NA
+23 2016   Nov       NA
+24 2016   Dec       NA</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="aggregating-a-data-frame" class="level1">
+<h1>Aggregating a data frame</h1>
+<p>The <code>summary()</code> function produces a summary of an entire data frame. However, it doesn’t allow you to calculate summaries for groups within the data frame (i.e. aggregating the data by group).</p>
+<p>If you want to calculate a mean across different groupings (e.g. for each value of a qualitative factor) the <code>aggregate()</code> function is very useful.</p>
 <p>To calculate the mean rainfall across years for each month:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean rainfall across years 2013-2016 for each month</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Rainfall<span class="sc">~</span>Month,          <span class="co"># Define aggregation using a formula</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span>rainfall.long,      <span class="co"># Specify data frame to be aggregated</span></span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN=</span>mean,                <span class="co"># Specify function to use for aggregation</span></span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.rm=</span><span class="cn">TRUE</span>,              <span class="co"># Ignore missing values</span></span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.action=</span>na.pass)       <span class="co"># Pass missing data to the aggregation function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean rainfall across years 2013-2016 for each month</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Rainfall<span class="sc">~</span>Month,          <span class="co"># Define aggregation using a formula</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span>rainfall.long,      <span class="co"># Specify data frame to be aggregated</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN=</span>mean,                <span class="co"># Specify function to use for aggregation</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.rm=</span><span class="cn">TRUE</span>,              <span class="co"># Ignore missing values</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.action=</span>na.pass)       <span class="co"># Pass missing data to the aggregation function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Month Rainfall
 1    Apr  53.1500
@@ -3735,17 +3856,17 @@ Levels: Breakfast Dinner Lunch</code></pre>
 </div>
 <p>The order of the months is alphabetical, making the summary harder to read. This could be improved by specifying the <code>Month</code> variable as a factor with the levels in a specified order. Below is the code to do this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Month as a factor with levels in a specified order</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>rainfall.long<span class="sc">$</span>Month <span class="ot">&lt;-</span> <span class="fu">factor</span>(rainfall.long<span class="sc">$</span>Month, </span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&#39;Jan&#39;</span>,<span class="st">&#39;Feb&#39;</span>,<span class="st">&#39;Mar&#39;</span>,<span class="st">&#39;Apr&#39;</span>,<span class="st">&#39;May&#39;</span>,<span class="st">&#39;Jun&#39;</span>,</span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Jul&#39;</span>,<span class="st">&#39;Aug&#39;</span>,<span class="st">&#39;Sep&#39;</span>,<span class="st">&#39;Oct&#39;</span>,<span class="st">&#39;Nov&#39;</span>,<span class="st">&#39;Dec&#39;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Month as a factor with levels in a specified order</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>rainfall.long<span class="sc">$</span>Month <span class="ot">&lt;-</span> <span class="fu">factor</span>(rainfall.long<span class="sc">$</span>Month, </span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&#39;Jan&#39;</span>,<span class="st">&#39;Feb&#39;</span>,<span class="st">&#39;Mar&#39;</span>,<span class="st">&#39;Apr&#39;</span>,<span class="st">&#39;May&#39;</span>,<span class="st">&#39;Jun&#39;</span>,</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Jul&#39;</span>,<span class="st">&#39;Aug&#39;</span>,<span class="st">&#39;Sep&#39;</span>,<span class="st">&#39;Oct&#39;</span>,<span class="st">&#39;Nov&#39;</span>,<span class="st">&#39;Dec&#39;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>aggregate</code> function can be used to produce a summary for each month</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of rainfall across years 2013-2016 for each month</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Rainfall<span class="sc">~</span>Month, </span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span>rainfall.long,</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN=</span>summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of rainfall across years 2013-2016 for each month</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Rainfall<span class="sc">~</span>Month, </span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span>rainfall.long,</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN=</span>summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Month Rainfall.Min. Rainfall.1st Qu. Rainfall.Median Rainfall.Mean
 1    Jan      140.9000         156.8750        164.2500      161.3500
@@ -3799,7 +3920,10 @@ Levels: Breakfast Dinner Lunch</code></pre>
 <li>Reorganising a data frame
 <ul>
 <li>Gathering data into one column</li>
-<li>Spreading data across several columns</li>
+<li>Spreading data across several columns<br>
+</li>
+<li>Merging two data frame<br>
+</li>
 </ul></li>
 <li>Groupwise summary a data frame</li>
 </ul>
